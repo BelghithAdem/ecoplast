@@ -46,9 +46,8 @@
     </script>
 </head>
 
-<body class="bg-gray-50 dark:bg-neutral-900">
+<body class="dark:bg-neutral-900">
 
-    @include('partialDashboard.header')
     @include('partialDashboard.sidebar')
     <button type="button"
         class="dark:text-white size-8 flex justify-center items-center gap-x-2 border border-gray-200 text-gray-800 hover:text-gray-500 rounded-lg focus:outline-none focus:text-gray-500 disabled:opacity-50 disabled:pointer-events-none"

@@ -113,9 +113,8 @@
     </script>
 </head>
 
-<body class="bg-gray-50 dark:bg-neutral-900">
+<body class="dark:bg-neutral-900">
 
-    @include('partialDashboard.header')
     <!-- ========== MAIN CONTENT ========== -->
 
 
@@ -223,7 +222,7 @@
                             class="mb-6 flex flex-wrap items-end gap-6 p-4 bg-white border border-gray-200 rounded-lg shadow-sm dark:bg-neutral-900 dark:border-none dark:text-white">
                             <div class="w-full sm:w-auto flex-1">
                                 <label for="recherche"
-                                    class="block text-sm font-medium text-gray-700 dark:text-white">
+                                    class="block text-lg font-medium dark:text-white">
                                     Rechercher dans toutes les colonnes
                                 </label>
                                 <input type="text" name="recherche" id="recherche"
@@ -232,9 +231,9 @@
                             </div>
                             <div class="w-full sm:w-auto">
                                 <button type="submit"
-                                    class="w-full inline-flex items-center justify-center px-6 py-2 text-sm font-medium text-white bg-indigo-600 rounded-md shadow hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2 dark:bg-indigo-500 dark:hover:bg-indigo-600">
-                                    Rechercher
-                                </button>
+                                class="py-2 px-3 inline-flex items-center gap-x-2 text-sm font-medium rounded-lg border border-transparent bg-blue-600 text-white hover:bg-blue-700 focus:outline-none focus:bg-blue-700 disabled:opacity-50 disabled:pointer-events-none dark:text-white"
+                            >Rechercher
+                            </button>
                             </div>
                         </form>
 
@@ -247,17 +246,17 @@
                                             <thead>
                                                 <tr>
                                                     <th scope="col"
-                                                        class="px-6 py-3 text-start text-xs font-medium text-gray-500 uppercase dark:text-white">
+                                                        class="px-6 py-3 text-start text-lg font-medium  uppercase dark:text-white">
                                                         Image
                                                     </th>
                                                     <th scope="col"
-                                                        class="px-6 py-3 text-start text-xs font-medium text-gray-500 uppercase dark:text-white">
+                                                        class="px-6 py-3 text-start text-lg font-medium uppercase dark:text-white">
                                                         Nom de Parthnaire
                                                     </th>
 
 
                                                     <th scope="col"
-                                                        class="px-6 py-3 text-end text-xs font-medium text-gray-500 uppercase dark:text-white">
+                                                        class="px-6 py-3 text-end text-lg font-medium uppercase dark:text-white">
                                                         Action
                                                     </th>
                                                 </tr>

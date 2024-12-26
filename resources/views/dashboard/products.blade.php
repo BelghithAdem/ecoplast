@@ -113,9 +113,8 @@
     </script>
 </head>
 
-<body class="bg-gray-50 dark:bg-neutral-900">
+<body class="dark:bg-neutral-900">
 
-    @include('partialDashboard.header')
     <!-- ========== MAIN CONTENT ========== -->
 
 
@@ -236,17 +235,17 @@
                             class="mb-6 flex flex-wrap items-end gap-6 p-4 bg-white border border-gray-200 rounded-lg shadow-sm dark:bg-neutral-900 dark:border-none dark:text-white">
                             <div class="w-full sm:w-auto flex-1">
                                 <label for="recherche"
-                                    class="block text-sm font-medium text-gray-700 dark:text-white">
+                                    class="block text-lg font-medium dark:text-white">
                                     Rechercher dans toutes les colonnes
                                 </label>
                                 <input type="text" name="recherche" id="recherche"
                                     value="{{ request('recherche') }}" placeholder="Entrez un mot-clé"
-                                    class="py-3 px-4 block w-full border-gray-200 rounded-lg text-sm focus:border-blue-500 focus:ring-blue-500 disabled:opacity-50 disabled:pointer-events-none dark:bg-neutral-900 dark:border-neutral-700 dark:text-neutral-400 dark:placeholder-neutral-500 dark:focus:ring-neutral-600">
+                                    class="mt-2 py-3 px-4 block w-full border-gray-200 rounded-lg text-sm focus:border-blue-500 focus:ring-blue-500 disabled:opacity-50 disabled:pointer-events-none dark:bg-neutral-900 dark:border-neutral-700 dark:text-neutral-400 dark:placeholder-neutral-500 dark:focus:ring-neutral-600">
                             </div>
                             <div class="w-full sm:w-auto">
                                 <button type="submit"
-                                    class="w-full inline-flex items-center justify-center px-6 py-2 text-sm font-medium text-white bg-indigo-600 rounded-md shadow hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2 dark:bg-indigo-500 dark:hover:bg-indigo-600">
-                                    Rechercher
+                                    class="py-2 px-3 inline-flex items-center gap-x-2 text-sm font-medium rounded-lg border border-transparent bg-blue-600 text-white hover:bg-blue-700 focus:outline-none focus:bg-blue-700 disabled:opacity-50 disabled:pointer-events-none dark:text-white"
+                                >Rechercher
                                 </button>
                             </div>
                         </form>
@@ -259,24 +258,24 @@
                                             <thead>
                                                 <tr>
                                                     <th scope="col"
-                                                        class="px-6 py-3 text-start text-xs font-medium text-gray-500 uppercase dark:text-white">
+                                                        class="px-6 py-3 text-start text-lg font-medium  uppercase dark:text-white">
                                                         Image
                                                     </th>
                                                     <th scope="col"
-                                                        class="px-6 py-3 text-start text-xs font-medium text-gray-500 uppercase dark:text-white">
+                                                        class="px-6 py-3 text-start text-lg font-medium  uppercase dark:text-white">
                                                         Nom de produit
                                                     </th>
                                                     <th scope="col"
-                                                        class="px-6 py-3 text-start text-xs font-medium text-gray-500 uppercase dark:text-white">
+                                                        class="px-6 py-3 text-start text-lg font-medium uppercase dark:text-white">
                                                         Description
                                                     </th>
                                                     <th scope="col"
-                                                        class="px-6 py-3 text-end text-xs font-medium text-gray-500 uppercase dark:text-white">
+                                                        class="px-6 py-3 text-end text-lg font-medium uppercase dark:text-white">
                                                         Quantité
                                                     </th>
                                                     <th scope="col"
-                                                        class="px-6 py-3 text-end text-xs font-medium text-gray-500 uppercase dark:text-white">
-                                                        Action
+                                                        class="px-6 py-3 text-end text-lg font-medium uppercase dark:text-white">
+                                                        Action Produit
                                                     </th>
                                                 </tr>
                                             </thead>
@@ -305,25 +304,28 @@
                                                             class="px-6 py-4 whitespace-nowrap text-sm text-gray-800 text-end dark:text-white">
                                                             {{ $product->qty }}
                                                         </td>
-                                                        <td
-                                                            class="px-6 py-4 whitespace-nowrap text-end text-sm font-medium">
-                                                            <!-- Edit Button -->
+                                                        <td class="px-6 py-4 whitespace-nowrap text-end text-sm font-medium">
+                                                            <!-- Edit Button (Updated icon) -->
                                                             <a href="{{ route('productDashboard.edit', $product->id) }}"
-                                                                class="inline-flex items-center gap-x-2 text-sm font-semibold rounded-lg border border-transparent text-green-600 hover:text-green-800 focus:outline-none focus:text-green-800">
-                                                                Edit
+                                                                class="inline-flex items-center justify-center p-2 text-green-600 hover:text-green-800 focus:outline-none focus:text-green-800">
+                                                                <!-- Edit Icon (pencil for update) -->
+                                                                <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 11l3 3L22 4M5 12a7 7 0 1114 0 7 7 0 01-14 0z" />
+                                                                  </svg>
+                                                                  
                                                             </a>
-
-
+                                                        
                                                             <!-- Delete Button -->
-                                                            <form
-                                                                action="{{ route('productDashboard.destroy', $product->id) }}"
-                                                                method="POST" style="display: inline-block;">
+                                                            <form action="{{ route('productDashboard.destroy', $product->id) }}" method="POST" style="display: inline-block;">
                                                                 @csrf
                                                                 @method('DELETE')
                                                                 <button type="submit"
-                                                                    class="inline-flex items-center gap-x-2 text-sm font-semibold rounded-lg border border-transparent text-red-600 hover:text-red-800 focus:outline-none focus:text-red-800"
+                                                                    class="inline-flex items-center justify-center p-2 text-red-600 hover:text-red-800 focus:outline-none focus:text-red-800"
                                                                     onclick="return confirm('Are you sure you want to delete this product?');">
-                                                                    Delete
+                                                                    <!-- Delete Icon (larger and clearer) -->
+                                                                    <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+                                                                    </svg>
                                                                 </button>
                                                             </form>
                                                         </td>
