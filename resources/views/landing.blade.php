@@ -351,7 +351,7 @@
                                         <div class="er_blog_wrapper">
                                             <div class="er_blog_img">
 
-                                                <img src="{{ '/storage/' . $product->image }}"
+                                                <img src="{{ '/storage/' . $product->images[0]->image_path }}"
                                                     alt="{{ $product->name }}">
                                             </div>
                                             <div class="er_blog_text">
@@ -475,8 +475,8 @@
                                     @foreach ($products as $item)
                                         <div class="er_footer_news">
                                             <div class="er_ftnews_img">
-                                                <img src="{{ '/storage/' . $item->image }}" width="120px"
-                                                    alt="{{ $item->name }}">
+                                                <img src="{{ '/storage/' . $item->images[0]->image_path }}"
+                                                    width="120px" alt="{{ $item->name }}">
                                             </div>
                                             <div class="er_ftnews_text">
                                                 <h4>{{ $item->name }}</h4>

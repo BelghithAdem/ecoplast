@@ -230,8 +230,8 @@
 
                                     <li><a href="/products">Produits</a></li>
                                     <li><a href="/contact-us">Contact</a></li>
-                                     <li> <button onclick="window.location.href='/demande-avis' "
-                                                class="er_btn er_con_btn submitForm">Demande devis</button></li>
+                                    <li> <button onclick="window.location.href='/demande-avis' "
+                                            class="er_btn er_con_btn submitForm">Demande devis</button></li>
                                 </ul>
                             </div>
                             <div class="er_toggle">
@@ -495,8 +495,8 @@
                                             @foreach ($products as $item)
                                                 <div class="er_footer_news">
                                                     <div class="er_ftnews_img">
-                                                        <img src="{{ '/storage/' . $item->image }}" width="120px"
-                                                            alt="{{ $item->name }}">
+                                                        <img src="{{ '/storage/' . $item->images[0]->image_path }}"
+                                                            width="120px" alt="{{ $item->name }}">
                                                     </div>
                                                     <div class="er_ftnews_text">
                                                         <h4>{{ $item->name }}</h4>

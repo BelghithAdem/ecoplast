@@ -992,7 +992,7 @@
                                     @foreach ($products as $item)
                                         <div class="er_footer_news">
                                             <div class="er_ftnews_img">
-                                                <img src="{{ '/storage/' . $item->image }}" width="120px"
+                                                <img src="{{ '/storage/' . $item->images[0]->image_path  }}" width="120px"
                                                     alt="{{ $item->name }}">
                                             </div>
                                             <div class="er_ftnews_text">
