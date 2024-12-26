@@ -120,13 +120,9 @@
     </script>
 </head>
 
-<body class="bg-gray-50 dark:bg-neutral-900">
+<body class="dark:bg-neutral-900">
 
-    @include('partialDashboard.header')
     <!-- ========== MAIN CONTENT ========== -->
-
-
-
 
     @include('partialDashboard.sidebar')
     <button type="button"
