@@ -393,12 +393,12 @@
                     <div class="row">
                         <div class="col-lg-12 col-md-12 col-sm-12">
                             <div class="er_bread_content">
-                                <h2>Contact Us</h2>
+                                <h2>Contactez-nous</h2>
                                 <div class="er_bread_list">
                                     <span>
-                                        <a href="index.html">Home</a>
+                                        <a href="/">Accueil</a>
                                     </span>
-                                    <span class="er_active_page">contact</span>
+                                    <span class="er_active_page">Contactez-nous</span>
                                 </div>
                                 <div class="er_bread_shape">
                                     <img src="assets/images/banner-shape/btm-leaf.png" alt="shape">
@@ -427,11 +427,13 @@
                         <div class="er_navmenu_wrapper">
                             <div class="er_nav_menu">
                                 <ul>
-                                    <li><a href="/">Home</a></li>
+                                    <li><a href="/">Accueil</a></li>
                                     <li><a href="/about-us">About</a></li>
 
                                     <li><a href="/products">Produits</a></li>
                                     <li class="active"><a href="/contact-us">Contact</a></li>
+                                     <li> <button onclick="window.location.href='/demande-avis' "
+                                                class="er_btn er_con_btn submitForm">Demande devis</button></li>
                                 </ul>
                             </div>
                             <div class="er_toggle">
@@ -455,9 +457,9 @@
                                 <img src="assets/images/con-map.png" alt="icon">
                             </div>
                             <div class="er_contact_text">
-                                <h4>Contact Us</h4>
-                                <p>+1-202-555-0101</p>
-                                <p>+1-202-555-0101</p>
+                                <h4>Telephone</h4>
+                                <p>+216 29 769 717</p>
+
                             </div>
                         </div>
                     </div>
@@ -467,12 +469,11 @@
                                 <img src="assets/images/con-email.png" alt="icon">
                             </div>
                             <div class="er_contact_text">
-                                <h4>Email Us</h4>
-                                <p><a href="https://kamleshyadav.com/cdn-cgi/l/email-protection" class="__cf_email__"
-                                        data-cfemail="32574a535f425e5772555f535b5e1c515d5f">[email&#160;protected]</a>
+                                <h4>Contactez-nous par email</h4>
+                                <p><a class="__cf_email__"
+                                        style="text-decoraction:none;color:white">ecoplast.tunisie@gmail.com</a>
                                 </p>
-                                <p><a href="https://kamleshyadav.com/cdn-cgi/l/email-protection" class="__cf_email__"
-                                        data-cfemail="d1b8bfb7be91b6bcb0b8bdffb2bebc">[email&#160;protected]</a></p>
+
                             </div>
                         </div>
                     </div>
@@ -482,8 +483,8 @@
                                 <img src="assets/images/con-call.png" alt="icon">
                             </div>
                             <div class="er_contact_text">
-                                <h4>Address</h4>
-                                <p>2972 Westheimer Rd. Santa Ana, <br> Illinois 85486</p>
+                                <h4>Adresse</h4>
+                                <p>Ksar Hellal, Ksar Hellal, <br> Tunisie</p>
                             </div>
                         </div>
                     </div>
@@ -491,42 +492,48 @@
                 <div class="row">
                     <div class="col-lg-12 col-md-12 col-sm-12 col-12">
                         <div class="er-contact_from">
-                            <h4 class="er-title">Get In touch</h4>
-                            <form>
+                            <h4 class="er-title">Contactez-nous</h4>
+                            @if (session('success'))
+                                <div class="bg-green-100 text-green-700 p-4 rounded-lg mb-4">
+                                    {{ session('success') }}
+                                </div>
+                            @endif
+                            <form action="{{ route('contact.store') }}" method="POST">
+                                @csrf
                                 <div class="row">
                                     <div class="col-lg-6 col-md-6 col-sm-12 col-12">
                                         <div class="er-inputField">
-                                            <input type="text" class="form-control require"
-                                                placeholder="Enter Your Name" name="full_name" id="full_name" />
+                                            <input type="text" class="form-control require" placeholder="Prénom"
+                                                name="first_name" id="first_name" />
                                         </div>
                                     </div>
                                     <div class="col-lg-6 col-md-6 col-sm-12 col-12">
                                         <div class="er-inputField">
                                             <input type="text" class="form-control require"
-                                                placeholder="Enter Your Email" name="email" id="email"
-                                                data-valid="email" data-error="Email should be valid." />
+                                                placeholder="Nom" name="last_name" id="last_name" />
                                         </div>
                                     </div>
                                     <div class="col-lg-6 col-md-6 col-sm-12 col-12">
                                         <div class="er-inputField">
-                                            <input type="text" class="form-control require"
-                                                placeholder="Enter Your Subject" name="subject" id="subject">
+                                            <input type="email" class="form-control require" placeholder="Email"
+                                                name="email" id="email">
                                         </div>
                                     </div>
                                     <div class="col-lg-6 col-md-6 col-sm-12 col-12">
                                         <div class="er-inputField">
-                                            <input type="text" placeholder="Enter Your Number"
-                                                class="form-control" id=""number>
+                                            <input type="text" placeholder="Entreprise" class="form-control"
+                                                id="company" name="company">
+                                        </div>
+                                    </div>
+
+                                    <div class="col-lg-12 col-md-12 col-sm-12 col-12">
+                                        <div class="er-inputField">
+                                            <textarea placeholder="Entrez votre message..." class="form-control form-textarea require" name="details"
+                                                id="details"></textarea>
                                         </div>
                                     </div>
                                     <div class="col-lg-12 col-md-12 col-sm-12 col-12">
-                                        <div class="er-inputField">
-                                            <textarea placeholder="Enter Your Message..." class="form-control form-textarea require" name="message"
-                                                id="message"></textarea>
-                                        </div>
-                                    </div>
-                                    <div class="col-lg-12 col-md-12 col-sm-12 col-12">
-                                        <button type="button" class="er_btn er_con_btn submitForm">Submit</button>
+                                        <button type="submit" class="er_btn er_con_btn submitForm">Soumettre</button>
                                         <div class="response"></div>
                                     </div>
                                 </div>
@@ -540,172 +547,164 @@
         <!------------- Map Section end ----------->
         <div class="responsive-map">
             <iframe
-                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2822.7806761080233!2d-93.29138368446431!3d44.96844997909819!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x52b32b6ee2c87c91%3A0xc20dff2748d2bd92!2sWalker+Art+Center!5e0!3m2!1sen!2sus!4v1514524647889"
+                src="https://maps.google.com/maps?width=600&amp;height=400&amp;hl=en&amp;q=68 شارع الحبيب بورقيبة، قصر هلال&amp;t=&amp;z=14&amp;ie=UTF8&amp;iwloc=B&amp;output=embed"
                 allowfullscreen></iframe>
         </div>
         <!------------- Map Section end ----------->
 
 
-    <!------------- footer Section start ----------->
-    <div class="er_sec er_footer_section">
-        <div class="container">
-            <div class="er_signup_wrapper">
-                <div class="row">
-                    <div class="col-lg-6">
-                        <div class="er_signup_sec">
-                            <h4>Voulez vos demandez de devis</h4>
+        <!------------- footer Section start ----------->
+        <div class="er_sec er_footer_section">
+            <div class="container">
+                <div class="er_signup_wrapper">
+                    <div class="row">
+                        <div class="col-lg-6">
+                            <div class="er_signup_sec">
+                                <h4>Voulez vos demandez de devis</h4>
+                            </div>
+                        </div>
+                        <div class="col-lg-6">
+                            <form method="">
+                                <div class="er_form_wrapper">
+
+                                    <div class="er_btn er-form-btn">
+                                        <a href="javascript:;">Demande devis</a>
+                                    </div>
+                                </div>
+                            </form>
                         </div>
                     </div>
-                    <div class="col-lg-6">
-                        <form method="">
-                            <div class="er_form_wrapper">
-
-                                <div class="er_btn er-form-btn">
-                                    <a href="javascript:;">Demande devis</a>
-                                </div>
-                            </div>
-                        </form>
+                    <div class="er_signup_img">
+                        <img src="assets/images/footer-plant.png" alt="plant-img">
                     </div>
                 </div>
-                <div class="er_signup_img">
-                    <img src="assets/images/footer-plant.png" alt="plant-img">
-                </div>
-            </div>
-            <div class="er_footer_box">
-                <div class="row">
-                    <div class="col-lg-5 col-md-6 col-sm-6">
-                        <div class="er_footer_logo">
-                            <a href="/">
-                                <img src="https://res.cloudinary.com/dx8hb4haj/image/upload/v1735134461/305634378_943428003244956_6083361726050805554_n-removebg-preview_spvusi.png"
-                                    width="100px" height="70px">
-                            </a>
-                            <p>There are many variations of passages of Lorem
-                                Ipsum available, but as a the majority have suffered
-                                alteration in some form, by injected humour, or ratt
-                                randomised words which don't look.</p>
-                            <div class="er_social_icon">
+                <div class="er_footer_box">
+                    <div class="row">
+                        <div class="col-lg-5 col-md-6 col-sm-6">
+                            <div class="er_footer_logo">
+                                <a href="/">
+                                    <img src="https://res.cloudinary.com/dx8hb4haj/image/upload/v1735134461/305634378_943428003244956_6083361726050805554_n-removebg-preview_spvusi.png"
+                                        width="100px" height="70px">
+                                </a>
+                                <p>La société EcoPlast Tunisie transforme les déchets plastique en granulés de plastique
+                                    haute qualité, notamment du PP, HDPE et LDPE.
+                                    Sur demande, nos équipes peuvent également laver et granuler à façon vos déchets
+                                    plastiques, films ou broyés.</p>
+                                <div class="er_social_icon">
+                                    <ul>
+                                        <li><a href="javascript:;">
+                                                <span>
+                                                    <svg width="9" height="17" viewBox="0 0 9 17"
+                                                        fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                        <path
+                                                            d="M5.73033 17V9.24607H8.33196L8.72228 6.22333H5.73033V4.29375C5.73033 3.41887 5.97228 2.82265 7.22828 2.82265L8.82759 2.82199V0.118345C8.55101 0.0824035 7.60161 0 6.49662 0C4.18921 0 2.60952 1.40842 2.60952 3.99438V6.22333H0V9.24607H2.60952V17H5.73033Z"
+                                                            fill="white" />
+                                                    </svg>
+                                                </span>
+                                            </a>
+                                        </li>
+                                        <li><a href="javascript:;">
+                                                <span>
+                                                    <svg width="17" height="17" viewBox="0 0 17 17"
+                                                        fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                        <path
+                                                            d="M9.89976 7.19834L16.0923 0H14.6249L9.24789 6.25022L4.9533 0H0L6.49426 9.45144L0 17H1.46752L7.14576 10.3996L11.6812 17H16.6345L9.8994 7.19834H9.89976ZM7.88979 9.53471L7.23179 8.59356L1.99629 1.10472H4.25031L8.47542 7.14845L9.13343 8.0896L14.6256 15.9455H12.3715L7.88979 9.53507V9.53471Z"
+                                                            fill="#111111" />
+                                                    </svg>
+                                                </span>
+                                            </a></li>
+                                        <li><a href="javascript:;">
+                                                <span>
+                                                    <svg width="14" height="17" viewBox="0 0 14 17"
+                                                        fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                        <path
+                                                            d="M7.13727 0C2.47708 0.000708343 0 2.98638 0 6.24192C0 7.7514 0.843637 9.63489 2.19445 10.232C2.57979 10.4056 2.52879 10.1938 2.86029 8.92583C2.87555 8.87462 2.8769 8.82026 2.8642 8.76835C2.8515 8.71644 2.82522 8.66885 2.78804 8.63046C0.857095 6.39705 2.4112 1.80557 6.86172 1.80557C13.3027 1.80557 12.0992 10.7179 7.98232 10.7179C6.92122 10.7179 6.13071 9.88493 6.38076 8.85429C6.68393 7.62673 7.27752 6.30709 7.27752 5.42237C7.27752 3.1925 3.95539 3.5233 3.95539 6.4778C3.95539 7.39085 4.27839 8.00711 4.27839 8.00711C4.27839 8.00711 3.2095 12.3252 3.01117 13.132C2.67541 14.4977 3.0565 16.7084 3.08979 16.8989C3.11034 17.0038 3.22792 17.0371 3.2938 16.9507C3.39934 16.8125 4.69136 14.9694 5.05332 13.637C5.18507 13.1518 5.72554 11.1826 5.72554 11.1826C6.08184 11.8258 7.10893 12.3641 8.20332 12.3641C11.4589 12.3641 13.812 9.50243 13.812 5.9515C13.8007 2.5472 10.8872 0 7.13727 0Z"
+                                                            fill="#F73A3A" />
+                                                    </svg>
+                                                </span>
+                                            </a></li>
+                                        <li><a href="javascript:;">
+                                                <span>
+                                                    <svg width="17" height="17" viewBox="0 0 17 17"
+                                                        fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                        <path
+                                                            d="M12.7497 0H4.2499C1.91266 0 0 1.91266 0 4.2499V12.7501C0 15.0867 1.91266 17 4.2499 17H12.7497C15.0869 17 16.9996 15.0867 16.9996 12.7501V4.2499C16.9996 1.91266 15.0869 0 12.7497 0ZM15.5829 12.7501C15.5829 14.3119 14.3124 15.5833 12.7497 15.5833H4.2499C2.68785 15.5833 1.4167 14.3119 1.4167 12.7501V4.2499C1.4167 2.68764 2.68785 1.4167 4.2499 1.4167H12.7497C14.3124 1.4167 15.5829 2.68764 15.5829 4.2499V12.7501Z"
+                                                            fill="#DF2E98" />
+                                                        <path
+                                                            d="M13.1046 4.95796C13.6913 4.95796 14.167 4.48227 14.167 3.89548C14.167 3.30869 13.6913 2.83301 13.1046 2.83301C12.5178 2.83301 12.0421 3.30869 12.0421 3.89548C12.0421 4.48227 12.5178 4.95796 13.1046 4.95796Z"
+                                                            fill="#DF2E98" />
+                                                        <path
+                                                            d="M8.49996 4.25C6.1523 4.25 4.25006 6.15245 4.25006 8.4999C4.25006 10.8465 6.1523 12.7502 8.49996 12.7502C10.8469 12.7502 12.7499 10.8465 12.7499 8.4999C12.7499 6.15245 10.8469 4.25 8.49996 4.25ZM8.49996 11.3335C6.93534 11.3335 5.66676 10.0649 5.66676 8.4999C5.66676 6.93486 6.93534 5.6667 8.49996 5.6667C10.0646 5.6667 11.3332 6.93486 11.3332 8.4999C11.3332 10.0649 10.0646 11.3335 8.49996 11.3335Z"
+                                                            fill="#DF2E98" />
+                                                    </svg>
+                                                </span>
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-4 col-md-6 col-sm-6">
+                            <div class="er_footer_heading">
+                                <h5>Notre Produits</h5>
+                                <div class="er_footer_news_box">
+                                    @foreach ($products as $item)
+                                        <div class="er_footer_news">
+                                            <div class="er_ftnews_img">
+                                                <img src="{{ '/storage/' . $item->image }}" width="120px"
+                                                    alt="{{ $item->name }}">
+                                            </div>
+                                            <div class="er_ftnews_text">
+                                                <h4>{{ $item->name }}</h4>
+                                                <span>
+                                                    <img src="{{ asset('assets/images/blog-date.png') }}"
+                                                        alt="news">
+                                                    <p>{{ $item->created_at->format('M d, Y') }}</p>
+                                                </span>
+                                            </div>
+                                        </div>
+                                    @endforeach
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-3 col-md-6 col-sm-12">
+                            <div class="er_footer_heading er_foot_contact">
+                                <h5>Contact Info</h5>
                                 <ul>
-                                    <li><a href="javascript:;">
-                                            <span>
-                                                <svg width="9" height="17" viewBox="0 0 9 17" fill="none"
-                                                    xmlns="http://www.w3.org/2000/svg">
-                                                    <path
-                                                        d="M5.73033 17V9.24607H8.33196L8.72228 6.22333H5.73033V4.29375C5.73033 3.41887 5.97228 2.82265 7.22828 2.82265L8.82759 2.82199V0.118345C8.55101 0.0824035 7.60161 0 6.49662 0C4.18921 0 2.60952 1.40842 2.60952 3.99438V6.22333H0V9.24607H2.60952V17H5.73033Z"
-                                                        fill="white" />
-                                                </svg>
-                                            </span>
-                                        </a>
+                                    <li>
+                                        <img src="assets/images/location.png" alt="icons">
+                                        <p><a href="javascript:;">Ksar Hellal, Ksar Hellal, Tunisia</a></p>
                                     </li>
-                                    <li><a href="javascript:;">
-                                            <span>
-                                                <svg width="17" height="17" viewBox="0 0 17 17"
-                                                    fill="none" xmlns="http://www.w3.org/2000/svg">
-                                                    <path
-                                                        d="M9.89976 7.19834L16.0923 0H14.6249L9.24789 6.25022L4.9533 0H0L6.49426 9.45144L0 17H1.46752L7.14576 10.3996L11.6812 17H16.6345L9.8994 7.19834H9.89976ZM7.88979 9.53471L7.23179 8.59356L1.99629 1.10472H4.25031L8.47542 7.14845L9.13343 8.0896L14.6256 15.9455H12.3715L7.88979 9.53507V9.53471Z"
-                                                        fill="#111111" />
-                                                </svg>
-                                            </span>
-                                        </a></li>
-                                    <li><a href="javascript:;">
-                                            <span>
-                                                <svg width="14" height="17" viewBox="0 0 14 17"
-                                                    fill="none" xmlns="http://www.w3.org/2000/svg">
-                                                    <path
-                                                        d="M7.13727 0C2.47708 0.000708343 0 2.98638 0 6.24192C0 7.7514 0.843637 9.63489 2.19445 10.232C2.57979 10.4056 2.52879 10.1938 2.86029 8.92583C2.87555 8.87462 2.8769 8.82026 2.8642 8.76835C2.8515 8.71644 2.82522 8.66885 2.78804 8.63046C0.857095 6.39705 2.4112 1.80557 6.86172 1.80557C13.3027 1.80557 12.0992 10.7179 7.98232 10.7179C6.92122 10.7179 6.13071 9.88493 6.38076 8.85429C6.68393 7.62673 7.27752 6.30709 7.27752 5.42237C7.27752 3.1925 3.95539 3.5233 3.95539 6.4778C3.95539 7.39085 4.27839 8.00711 4.27839 8.00711C4.27839 8.00711 3.2095 12.3252 3.01117 13.132C2.67541 14.4977 3.0565 16.7084 3.08979 16.8989C3.11034 17.0038 3.22792 17.0371 3.2938 16.9507C3.39934 16.8125 4.69136 14.9694 5.05332 13.637C5.18507 13.1518 5.72554 11.1826 5.72554 11.1826C6.08184 11.8258 7.10893 12.3641 8.20332 12.3641C11.4589 12.3641 13.812 9.50243 13.812 5.9515C13.8007 2.5472 10.8872 0 7.13727 0Z"
-                                                        fill="#F73A3A" />
-                                                </svg>
-                                            </span>
-                                        </a></li>
-                                    <li><a href="javascript:;">
-                                            <span>
-                                                <svg width="17" height="17" viewBox="0 0 17 17"
-                                                    fill="none" xmlns="http://www.w3.org/2000/svg">
-                                                    <path
-                                                        d="M12.7497 0H4.2499C1.91266 0 0 1.91266 0 4.2499V12.7501C0 15.0867 1.91266 17 4.2499 17H12.7497C15.0869 17 16.9996 15.0867 16.9996 12.7501V4.2499C16.9996 1.91266 15.0869 0 12.7497 0ZM15.5829 12.7501C15.5829 14.3119 14.3124 15.5833 12.7497 15.5833H4.2499C2.68785 15.5833 1.4167 14.3119 1.4167 12.7501V4.2499C1.4167 2.68764 2.68785 1.4167 4.2499 1.4167H12.7497C14.3124 1.4167 15.5829 2.68764 15.5829 4.2499V12.7501Z"
-                                                        fill="#DF2E98" />
-                                                    <path
-                                                        d="M13.1046 4.95796C13.6913 4.95796 14.167 4.48227 14.167 3.89548C14.167 3.30869 13.6913 2.83301 13.1046 2.83301C12.5178 2.83301 12.0421 3.30869 12.0421 3.89548C12.0421 4.48227 12.5178 4.95796 13.1046 4.95796Z"
-                                                        fill="#DF2E98" />
-                                                    <path
-                                                        d="M8.49996 4.25C6.1523 4.25 4.25006 6.15245 4.25006 8.4999C4.25006 10.8465 6.1523 12.7502 8.49996 12.7502C10.8469 12.7502 12.7499 10.8465 12.7499 8.4999C12.7499 6.15245 10.8469 4.25 8.49996 4.25ZM8.49996 11.3335C6.93534 11.3335 5.66676 10.0649 5.66676 8.4999C5.66676 6.93486 6.93534 5.6667 8.49996 5.6667C10.0646 5.6667 11.3332 6.93486 11.3332 8.4999C11.3332 10.0649 10.0646 11.3335 8.49996 11.3335Z"
-                                                        fill="#DF2E98" />
-                                                </svg>
-                                            </span>
-                                        </a>
+                                    <li>
+                                        <img src="assets/images/phone.png" alt="icons">
+                                        <p><a href="javascript:;">29 769 717</a></p>
+                                    </li>
+                                    <li>
+                                        <img src="assets/images/mail.png" alt="icons">
+                                        <p><a href="javascript:;"><span class="__cf_email__"
+                                                    data-cfemail="ecoplast.tunisie@gmail.com">ecoplast.tunisie@gmail.com</span></a>
+                                        </p>
                                     </li>
                                 </ul>
                             </div>
                         </div>
                     </div>
-                    <div class="col-lg-4 col-md-6 col-sm-6">
-                        <div class="er_footer_heading">
-                            <h5>Notre Produits</h5>
-                            <div class="er_footer_news_box">
-                                <div class="er_footer_news">
-                                    <div class="er_ftnews_img">
-                                        <img src="assets/images/news-1.png" alt="news">
-                                    </div>
-                                    <div class="er_ftnews_text">
-                                        <h4>There Are Many Variations Passages</h4>
-                                        <span>
-                                            <img src="assets/images/date-icon.png" alt="news">
-                                            <p>Jan 06, 2024</p>
-                                        </span>
-                                    </div>
-                                </div>
-                                <div class="er_footer_news">
-                                    <div class="er_ftnews_img">
-                                        <img src="assets/images/news-1.png" alt="news">
-                                    </div>
-                                    <div class="er_ftnews_text">
-                                        <h4>There Are Many Variations Passages</h4>
-                                        <span>
-                                            <img src="assets/images/date-icon.png" alt="news">
-                                            <p>Jan 06, 2024</p>
-                                        </span>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-3 col-md-6 col-sm-12">
-                        <div class="er_footer_heading er_foot_contact">
-                            <h5>Contact Info</h5>
-                            <ul>
-                                <li>
-                                    <img src="assets/images/location.png" alt="icons">
-                                    <p><a href="javascript:;">2972 Westheimer Rd. Santa Ana, Illinois 85486</a></p>
-                                </li>
-                                <li>
-                                    <img src="assets/images/phone.png" alt="icons">
-                                    <p><a href="javascript:;">(406) 555-0120</a></p>
-                                </li>
-                                <li>
-                                    <img src="assets/images/mail.png" alt="icons">
-                                    <p><a href="javascript:;"><span class="__cf_email__"
-                                                data-cfemail="c5a0bda4a8b5a9a085a2a8a4aca9eba6aaa8">[email&#160;protected]</span></a>
-                                    </p>
-                                </li>
-                            </ul>
+                </div>
+            </div>
+        </div>
+        <!------------- footer Section end ----------->
+        <!------------- Copyright Section start ----------->
+        <div class="er_copyright_section">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-12">
+                        <div class="er_copy_text">
+                            <p>Eco Plast © 2024</p>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-    </div>
-    <!------------- footer Section end ----------->
-    <!------------- Copyright Section start ----------->
-    <div class="er_copyright_section">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-12">
-                    <div class="er_copy_text">
-                        <p>Eco Plast © 2024</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
     </div>
     <!------------- Copyright Section end ----------->
 

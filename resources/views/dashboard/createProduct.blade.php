@@ -237,21 +237,25 @@
                 <!-- Image -->
                 <div class="mb-4">
                     <label for="image"
-                        class="block text-sm font-medium text-gray-700 dark:text-white">Image</label>
+                        class="block text-sm font-medium text-gray-700 dark:text-white">Images</label>
 
-                    <input type="file" name="image" id="image"
-                    
+                    <input type="file"
+name="images[]" id="images" multiple
                         class="block w-full border border-gray-200 shadow-sm rounded-lg text-sm focus:z-10 focus:border-blue-500 focus:ring-blue-500 disabled:opacity-50 disabled:pointer-events-none dark:bg-neutral-900 dark:border-neutral-700 dark:text-neutral-400
     file:bg-gray-50 file:border-0
     file:me-4
     file:py-3 file:px-4
     dark:file:bg-neutral-700 dark:file:text-neutral-400">
 
-                    @if (isset($product) && $product->image)
-                    
-                    <img src="{{ asset('storage/' . $product->image) }}" alt="Product Image" class="mt-2 w-auto" controls style="height:200px">
-                   @endif
-                    @error('image')
+                    @if (isset($product) && $product->images)
+                        @foreach ($product->images as $image)
+                            <a href="{{ asset('storage/' . $image->image_path) }}" target="_blank"
+                                class="text-blue-500 underline mt-2">
+                                image
+                            </a>
+                        @endforeach
+                    @endif
+                    @error('images.*')
                         <span class="text-red-500 text-sm">{{ $message }}</span>
                     @enderror
                 </div>
@@ -266,7 +270,7 @@
 
         @if (isset($product) && $product->pdfs)
         @foreach ($product->pdfs as $index => $pdf)
-            <a href="{{ asset('storage/' . $pdf->pdf_path) }}" target="_blank" 
+            <a href="{{ asset('storage/' . $pdf->pdf_path) }}" target="_blank"
                class="mt-4 inline-flex flex-col items-center space-x-4 hover:text-blue-700 transition-all duration-200">
                 <!-- Icône PDF personnalisée -->
                 <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-8 fill-current" viewBox="0 0 512 512">
@@ -279,8 +283,8 @@
             </a>
         @endforeach
     @endif
-    
-    
+
+
 
                     @error('pdfs.*')
                         <span class="text-red-500 text-sm">{{ $message }}</span>

@@ -13,4 +13,11 @@ class Product extends Model
         return $this->hasMany(ProductPdf::class);
     }
 
+    public function images()
+    {
+        return $this->hasMany(ProductImages::class);
+    }
+
+
+
 }

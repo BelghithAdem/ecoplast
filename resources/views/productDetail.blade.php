@@ -19,14 +19,48 @@
         rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@200..800&amp;display=swap" rel="stylesheet">
     <!-- custom css link -->
-   <link rel="stylesheet" href="{{ asset('assets/css/bootstrap.min.css') }}">
-<link rel="stylesheet" href="{{ asset('assets/css/font-awesome.min.css') }}">
-<link rel="stylesheet" href="{{ asset('assets/css/swiper-bundle.min.css') }}">
-<link rel="stylesheet" href="{{ asset('assets/css/aos.css') }}">
-<link rel="stylesheet" href="{{ asset('assets/css/style.css') }}">
-<link rel="stylesheet" href="{{ asset('assets/css/responsive.css') }}">
+    <link rel="stylesheet" href="{{ asset('assets/css/bootstrap.min.css') }}">
+    <link rel="stylesheet" href="{{ asset('assets/css/font-awesome.min.css') }}">
+    <link rel="stylesheet" href="{{ asset('assets/css/swiper-bundle.min.css') }}">
+    <link rel="stylesheet" href="{{ asset('assets/css/aos.css') }}">
+    <link rel="stylesheet" href="{{ asset('assets/css/style.css') }}">
+    <link rel="stylesheet" href="{{ asset('assets/css/responsive.css') }}">
+    <link rel="stylesheet" href="{{ asset('assets/css/splide.css') }}">
     <!-- favicon -->
     <link rel="icon" type="image/png" href="assets/images/favicon.png">
+    <style>
+        .thumbnail_slider {
+            max-width: 700px;
+            margin: 30px auto;
+        }
+
+        .splide__slide {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 400px;
+            width: 580px;
+            overflow: hidden;
+            transition: .2s;
+            border-width: 2px !important;
+            margin: 10px 4px;
+        }
+
+        .splide--nav>.splide__track>.splide__list>.splide__slide.is-active {
+            box-shadow: 2px 3px 8px #000000a3;
+        }
+
+        .splide__slide img {
+            width: auto;
+            height: auto;
+            margin: auto;
+            display: block;
+            max-width: 100%;
+            max-height: 100%;
+        }
+
+        /* Slider CSS End  */
+    </style>
 </head>
 
 <body>
@@ -38,22 +72,22 @@
                     <div class="row">
                         <div class="col-lg-12 col-md-12 col-sm-12">
                             <div class="er_bread_content">
-                                <h2>Blog Single</h2>
+                                <h2>{{ $product->name }}</h2>
                                 <div class="er_bread_list">
                                     <span>
-                                        <a href="index.html">Accueil</a>
+                                        <a href="/">Accueil</a>
                                     </span>
                                     <span>
-                                        <a href="blog.html">Produit</a>
+                                        <a href="/products">Produit</a>
                                     </span>
-                                    <span class="er_active_page">product</span>
+                                    <span class="er_active_page">{{ $product->name }}</span>
                                 </div>
                                 <div class="er_bread_shape">
-                                    <img src="assets/images/banner-shape/btm-leaf.png" alt="shape">
-                                    <img src="assets/images/banner-shape/top-leaf.png" alt="shape">
-                                    <img src="assets/images/banner-shape/btm-shape.png" alt="shape">
-                                    <img src="assets/images/banner-shape/dot1.png" alt="shape">
-                                    <img src="assets/images/banner-shape/dot2.png" alt="shape">
+                                    <img src="{{ asset('assets/images/banner-shape/btm-leaf.png') }}" alt="shape">
+                                    <img src="{{ asset('assets/images/banner-shape/top-leaf.png') }} " alt="shape">
+                                    <img src="{{ asset('assets/images/banner-shape/btm-shape.png') }}" alt="shape">
+                                    <img src="{{ asset('assets/images/banner-shape/dot1.png') }}" alt="shape">
+                                    <img src="{{ asset('assets/images/banner-shape/dot2.png') }}" alt="shape">
                                 </div>
                             </div>
                         </div>
@@ -66,7 +100,7 @@
                 <div class="row align-items-center">
                     <div class="col-lg-5 col-md-4 col-sm-7 col-10">
                         <div class="er_menu_logo">
-                           <a href="/"><img
+                            <a href="/"><img
                                     src="https://res.cloudinary.com/dx8hb4haj/image/upload/v1735134461/305634378_943428003244956_6083361726050805554_n-removebg-preview_spvusi.png"
                                     width="100px" height="70px"></a>
                         </div>
@@ -80,6 +114,8 @@
 
                                     <li class="active"><a href="/products">Produits</a></li>
                                     <li><a href="/contact-us">Contact</a></li>
+                                    <li> <button onclick="window.location.href='/demande-avis' "
+                                            class="er_btn er_con_btn submitForm">Demande devis</button></li>
                                 </ul>
                             </div>
                             <div class="er_toggle">
@@ -93,156 +129,118 @@
             </div>
         </div>
         <!------------- Header Section end ----------->
-         <!-- blog single page -->
-    <div class="er_blog_single_wrapper">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-9 col-md-12">
-                    <div class="er_blogsingle_page">
-                        <div class="er_post_img">
-                            <img src="assets/images/blog_single.png" alt="" class="img-responsive">
+        <!-- blog single page -->
+        <div class="er_blog_single_wrapper">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-8 col-md-12">
+                        <div class="er_blogsingle_page">
+
+
+
+                            <!-- Primary Slider Start-->
+                            <div id="primary_slider">
+                                <div class="splide__track">
+                                    <ul class="splide__list">
+                                        @foreach ($product->images as $image)
+                                            <li class="splide__slide">
+                                                <img src="{{ '/storage/' . $image->image_path }}" alt="Product Image">
+                                            </li>
+                                        @endforeach
+
+                                    </ul>
+                                </div>
+                            </div>
+                            <!-- Primary Slider End-->
+                            <!-- Thumbnal Slider Start-->
+                            <div id="thumbnail_slider">
+                                <div class="splide__track">
+                                    <ul class="splide__list">
+                                        @foreach ($product->images as $image)
+                                            <li class="splide__slide">
+                                                <img src="{{ '/storage/' . $image->image_path }}" alt="Product Image">
+                                            </li>
+                                        @endforeach
+
+
+                                    </ul>
+                                </div>
+                            </div>
+                            <!-- Thumbnal Slider End-->
                         </div>
                         <div class="er_post_detail">
                             <div class="er_post_data">
-                                <span class="post_like"><a href="javascript:;"><i class="fa fa-user" aria-hidden="true"></i>Post By - John </a></span>
-                                <span class="post_like"><a href="javascript:;"><i class="fa fa-calendar" aria-hidden="true"></i>24 March 2024</a></span>
-                            </div>
-                            <h5 class="post_title"><a href="javascript:;"> Air Purifying Plants</a></h5>
-                            <p>Sed orci dolor, pulvinar nec luctus a, malesuada ac nisl. Aliquam eleifend et dui et
-                                suscipit. Nam semper accumsan ante, ac dapibus urna dapibus et. Aenean lobortis viverra
-                                nibh in porttitor. Aenean vel eros posuere, laoreet ligula et, lobortis tellus. Morbi
-                                quis nunc in risus ornare egestas et ac libero. Donec egestas nunc massa, ac euismod
-                                odio posuere sit amet.</p>
 
-                            <p>Ut interdum nisi lectus, eget aliquet quam sagittis et. Nam volutpat convallis sem vel
-                                lobortis. Nullam consectetur dolor urna, eget ultricies enim eleifend sit amet. Sed orci
-                                dolor, pulvinar nec luctus a, malesuada ac nisl. Aliquam eleifend et dui et suscipit.
-                                Nam semper accumsan ante, ac dapibus urna dapibus et. </p>
-                            <p>Aenean lobortis viverra nibh in porttitor. Aenean vel eros posuere, laoreet ligula et,
-                                lobortis tellus. Morbi quis nunc in risus ornare egestas et ac libero. Donec egestas
-                                nunc massa, ac euismod odio posuere sit amet. Ut interdum nisi lectus, eget aliquet quam
-                                sagittis et. Nam volutpat convallis sem vel lobortis. Nullam consectetur dolor urna,
-                                eget ultricies enim eleifend sit amet.</p>
-                            <div class="er_blockquote">
-                                <blockquote class="blockquote">
-                                    <p>It is a long established fact that a reader will be distracted by the readable
-                                        content of a page when looking at its layout. </p>
-                                </blockquote>
+                                <span class="post_like"><a href="javascript:;"><i class="fa fa-calendar"
+                                            aria-hidden="true"></i>{{ $product->created_at->format('M d, Y') }}</a></span>
                             </div>
-                            <div class="er_blog_data">
-                                <div class="er_blog_para">
-                                    <p>There are many variations of passages of Lorem Ipsum available, but the majority
-                                        have suffered alteration in some form, by injected humour Nemo enim ipsam
-                                        voluptatem quia voluptas sit aspernatur aut odit</p>
-                                    <p>randomised words which don't look even slightly believable. If you are going to
-                                        use a passage of Lorem Ipsum. Nemo enim ipsam voluptatem quia voluptas sit
-                                        aspernatur aut odit</p>
-                                </div>
-                            </div>
-                            <div class="er_blog_post">
-                                <h3 class="post_heading">Posted by Admin</h3>
-                                <div class="er_post_div">
-                                    <div class="review_author">
-                                        <img src="assets/images/admin.jpg" alt="" class="img-responsive">
+                            <h5 class="post_title"><a href="javascript:;"> {{ $product->name }}</a></h5>
+                            <p>{{ $product->description }}</p>
+
+
+                            <div class="article-left-PC_Icons__IaPLI">
+                                <div class="d-flex justify-content-between">
+                                    <div>
+                                        <h5 class="post_title"><a href="javascript:;"> Share</a></h5>
                                     </div>
-                                    <div class="er_blog_post_para">
-                                        <h3>Marion Alvarado</h3>
-                                        <p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium
-                                            doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore
-                                            veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim
-                                            ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia
-                                            consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt.</p>
+                                    <div>
+                                        <a href="#"
+                                            onclick="window.open('https://www.facebook.com/sharer.php?u=' + encodeURIComponent(window.location.href), '_blank', 'width=600,height=400,noopener,noreferrer'); return false;">
+                                            <img alt="Share on Facebook" loading="lazy" width="25.67"
+                                                height="25.67" decoding="async" class="article-content_Icon__LhXZY"
+                                                style="color: transparent"
+                                                src="https://www.fwd.com.hk/blog/icon/FacebookDarkgreen.svg">
+                                        </a>
+                                        <!-- WhatsApp Share -->
+                                        <a id="whatsapp-share" href="#" target="_blank"
+                                            rel="noopener noreferrer">
+                                            <img alt="Share on WhatsApp" loading="lazy" width="25.67"
+                                                height="25.67" decoding="async"
+                                                src="https://www.fwd.com.hk/blog/icon/WhatsappDarkgreen.svg">
+                                        </a>
+
+                                        <!-- LinkedIn Share -->
+                                        <a id="linkedin-share" href="#" target="_blank"
+                                            rel="noopener noreferrer">
+                                            <img alt="Share on LinkedIn" loading="lazy" width="23.33"
+                                                height="23.33" decoding="async"
+                                                src="https://www.fwd.com.hk/blog/icon/LinkedinDarkgreen.svg">
+                                        </a>
                                     </div>
                                 </div>
-                            </div>
-                            <h3 class="post_heading">comments</h3>
-                            <div class="comment">
-                                <div class="comment-author">
-                                    <img src="assets/images/comment-author-1.jpg" alt="" class="img-responsive">
-                                </div>
-                                <div class="comment-text">
-                                    <div><span class="comment-author-name">Jhini Snow</span><span
-                                            class="comment-date">15.04.2023</span></div>
-                                    <p>Happiness is the universal feeling we all aspire to experience more of, yet, we
-                                        can be an angry, moody, depressed bunch, can’t we, Many desktop publishing packages and web page.</p>
-                                    <a href="javascriptvoid:;" class="comment-reply">Reply</a>
-                                </div>
-                            </div>
-                            <div class="comment comment--replied">
-                                <div class="comment-author">
-                                    <img src="assets/images/comment-author-2.jpg" alt="" class="img-responsive">
-                                </div>
-                                <div class="comment-text">
-                                    <div><span class="comment-author-name">steffi Smith</span><span class="comment-date">23.05.2023</span></div>
-                                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas consectetur passage of Lorem Ipsum vel
-                                        quam sit amet luctus. Aliquam semper interdum eros.</p>
-                                    <a href="javascriptvoid:;" class="comment-reply">Reply</a>
-                                </div>
-                            </div>
-                            <div class="comment ">
-                                <div class="comment-author">
-                                    <img src="assets/images/comment-author-1.jpg" alt="" class="img-responsive">
-                                </div>
-                                <div class="comment-text">
-                                    <div><span class="comment-author-name">Jhini Snow</span><span
-                                            class="comment-date">25.07.2023</span></div>
-                                    <p>Curabitur venenatis et ante id consequat. Lorem ipsum dolor sit amet, consectetur
-                                        adipiscing elit. Suspendisse non blandit dolor.</p>
-                                    <a href="javascriptvoid:;" class="comment-reply">Reply</a>
-                                </div>
+
+
                             </div>
 
-                            <div class="er_comments">
-                                <div class="comments-form">
-                                    <h3>Leave A Comments</h3>
-                                    <div class="wed_contact_bg">
-                                        <form>
-                                            <div class="row">
-                                                <div class="col-lg-6 col-md-6 col-sm-6">
-                                                    <div class="er-inputField">
-                                                        <input type="text" class="form-control require"
-                                                            placeholder="Enter Your Name">
-                                                    </div>
-                                                </div>
-                                                <div class="col-lg-6 col-md-6 col-sm-6">
-                                                    <div class="er-inputField">
-                                                        <input type="text" class="form-control require" name="email"
-                                                            placeholder="Enter Your Email" data-valid="email"
-                                                            data-error="Email should be valid.">
-                                                    </div>
-                                                </div>
-                                                <div class="col-lg-12 col-md-12">
-                                                    <div class="er-inputField">
-                                                        <textarea name="your-message" cols="3" rows="8"
-                                                            class="form-control require"
-                                                            placeholder="Enter Your Message..."></textarea>
-                                                    </div>
-                                                </div>
-                                                <div class="col-lg-12 col-md-12">
-                                                    <button type="button"
-                                                        class="er_btn er_con_btn submitForm">Submit</button>
-                                                    <div class="response"></div>
-                                                </div>
-                                            </div>
-                                        </form>
-                                    </div>
-                                </div>
-                            </div>
+
+
+
                         </div>
                     </div>
-                </div>
-                <div class="col-lg-3 col-md-12">
-                    <div class="er_search_wrapper">
-                        <div class="er_blogsing_box">
-                            <div class="er_search_box">
-                                <input type="search" placeholder="search..." class="form-control">
-                                <i class="fa fa-search" aria-hidden="true"></i>
-                            </div>
-                        </div>
-                        <div class="er_blogsing_box">
-                            <h4>Recent Post</h4>
-                            <div class="er_footer_news er_blsing_post">
-                                <div class="er_ftnews_img">
+
+                    <div class="col-lg-3 col-md-12">
+                        <div class="er_search_wrapper">
+
+                            <div class="er_blogsing_box">
+                                <h4>Pdf support</h4>
+                                <div class="er_footer_news er_blsing_post">
+
+                                    @foreach ($product->pdfs as $index => $pdf)
+                                        <div class="pdf-item">
+                                            <a href="javascript:void(0);" class="pdf-link"
+                                                data-pdf="{{ '/storage/' . $pdf->pdf_path }}">
+                                                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20"
+                                                    fill="currentColor" class="pdf-icon" viewBox="0 0 16 16">
+                                                    <path
+                                                        d="M4.293 1.5a1 1 0 0 0-.707.293l-2 2A1 1 0 0 0 1.5 4.293V14a2 2 0 0 0 2 2h9a2 2 0 0 0 2-2V4a2 2 0 0 0-2-2H6.5a.5.5 0 0 1-.5-.5V1.5H4.293zM6.5 2v1a1 1 0 0 0 1 1H14v10a1 1 0 0 1-1 1H3.5a1 1 0 0 1-1-1V4.707L4.707 2H6.5z" />
+                                                    <path
+                                                        d="M9.5 6a.5.5 0 0 1 .5.5V8h1.5a.5.5 0 0 1 0 1H10v1.5a.5.5 0 0 1-1 0V9H7.5a.5.5 0 0 1 0-1H9V6.5a.5.5 0 0 1 .5-.5z" />
+                                                </svg>
+                                                PDF {{ $loop->iteration }}
+                                            </a>
+                                        </div>
+                                    @endforeach
+                                    {{-- <div class="er_ftnews_img">
                                     <img src="assets/images/news-1.png" alt="news">
                                 </div>
                                 <div class="er_ftnews_text">
@@ -251,43 +249,24 @@
                                         <img src="assets/images/date-icon.png" alt="news">
                                         <p>Jan 06, 2024</p>
                                     </span>
+                                </div> --}}
                                 </div>
+
                             </div>
-                            <div class="er_footer_news er_blsing_post">
-                                <div class="er_ftnews_img">
-                                    <img src="assets/images/news-2.png" alt="news">
+                        </div>
+                        <div class="er_search_wrapper">
+
+                            <div class="er_blogsing_box">
+
+                                <div class="er_footer_news er_blsing_post">
+
+                                    <video width="250px" autoplay loop muted>
+                                        <source src="{{ '/storage/' . $product->video }}" type="video/mp4">
+                                        Your browser does not support the video tag.
+                                    </video>
+
                                 </div>
-                                <div class="er_ftnews_text">
-                                    <h4>The point of using Lorem Ipsum</h4>
-                                    <span>
-                                        <img src="assets/images/date-icon.png" alt="news">
-                                        <p>Jan 06, 2024</p>
-                                    </span>
-                                </div>
-                            </div>
-                            <div class="er_footer_news er_blsing_post">
-                                <div class="er_ftnews_img">
-                                    <img src="assets/images/news-3.png" alt="news">
-                                </div>
-                                <div class="er_ftnews_text">
-                                    <h4>The leap into electronic typesetting</h4>
-                                    <span>
-                                        <img src="assets/images/date-icon.png" alt="news">
-                                        <p>Jan 06, 2024</p>
-                                    </span>
-                                </div>
-                            </div>
-                            <div class="er_footer_news er_blsing_post">
-                                <div class="er_ftnews_img">
-                                    <img src="assets/images/news-4.png" alt="news">
-                                </div>
-                                <div class="er_ftnews_text">
-                                    <h4>It has survived not only five centuries</h4>
-                                    <span>
-                                        <img src="assets/images/date-icon.png" alt="news">
-                                        <p>Jan 06, 2024</p>
-                                    </span>
-                                </div>
+
                             </div>
                         </div>
                     </div>
@@ -295,8 +274,23 @@
             </div>
         </div>
     </div>
+    <!-- Bootstrap Modal -->
+    <div class="modal fade" id="pdfModal" tabindex="-1" aria-labelledby="pdfModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-xl">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="pdfModalLabel">Voir PDF</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <iframe id="pdfViewer" src="" width="100%" height="500px"
+                        style="border:none;"></iframe>
+                </div>
+            </div>
+        </div>
+    </div>
     <!------------- blog-single Section End ----------->
- <!------------- footer Section start ----------->
+    <!------------- footer Section start ----------->
     <div class="er_sec er_footer_section">
         <div class="container">
             <div class="er_signup_wrapper">
@@ -318,7 +312,7 @@
                     </div>
                 </div>
                 <div class="er_signup_img">
-                    <img src="assets/images/footer-plant.png" alt="plant-img">
+                    <img src="{{ asset('assets/images/footer-plant.png') }}" alt="plant-img">
                 </div>
             </div>
             <div class="er_footer_box">
@@ -329,10 +323,10 @@
                                 <img src="https://res.cloudinary.com/dx8hb4haj/image/upload/v1735134461/305634378_943428003244956_6083361726050805554_n-removebg-preview_spvusi.png"
                                     width="100px" height="70px">
                             </a>
-                            <p>There are many variations of passages of Lorem
-                                Ipsum available, but as a the majority have suffered
-                                alteration in some form, by injected humour, or ratt
-                                randomised words which don't look.</p>
+                            <p>La société EcoPlast Tunisie transforme les déchets plastique en granulés de plastique
+                                haute qualité, notamment du PP, HDPE et LDPE.
+                                Sur demande, nos équipes peuvent également laver et granuler à façon vos déchets
+                                plastiques, films ou broyés.</p>
                             <div class="er_social_icon">
                                 <ul>
                                     <li><a href="javascript:;">
@@ -391,30 +385,21 @@
                         <div class="er_footer_heading">
                             <h5>Notre Produits</h5>
                             <div class="er_footer_news_box">
-                                <div class="er_footer_news">
-                                    <div class="er_ftnews_img">
-                                        <img src="assets/images/news-1.png" alt="news">
+                                @foreach ($products as $item)
+                                    <div class="er_footer_news">
+                                        <div class="er_ftnews_img">
+                                            <img src="{{ '/storage/' . $item->image }}" width="120px"
+                                                alt="{{ $item->name }}">
+                                        </div>
+                                        <div class="er_ftnews_text">
+                                            <h4>{{ $item->name }}</h4>
+                                            <span>
+                                                <img src="{{ asset('assets/images/blog-date.png') }}" alt="news">
+                                                <p>{{ $item->created_at->format('M d, Y') }}</p>
+                                            </span>
+                                        </div>
                                     </div>
-                                    <div class="er_ftnews_text">
-                                        <h4>There Are Many Variations Passages</h4>
-                                        <span>
-                                            <img src="assets/images/date-icon.png" alt="news">
-                                            <p>Jan 06, 2024</p>
-                                        </span>
-                                    </div>
-                                </div>
-                                <div class="er_footer_news">
-                                    <div class="er_ftnews_img">
-                                        <img src="assets/images/news-1.png" alt="news">
-                                    </div>
-                                    <div class="er_ftnews_text">
-                                        <h4>There Are Many Variations Passages</h4>
-                                        <span>
-                                            <img src="assets/images/date-icon.png" alt="news">
-                                            <p>Jan 06, 2024</p>
-                                        </span>
-                                    </div>
-                                </div>
+                                @endforeach
                             </div>
                         </div>
                     </div>
@@ -423,15 +408,15 @@
                             <h5>Contact Info</h5>
                             <ul>
                                 <li>
-                                    <img src="assets/images/location.png" alt="icons">
-                                    <p><a href="javascript:;">2972 Westheimer Rd. Santa Ana, Illinois 85486</a></p>
+                                    <img src="{{ asset('assets/images/location.png') }}" alt="icons">
+                                    <p><a href="javascript:;">Ksar Hellal, Ksar Hellal, Tunisia</a></p>
                                 </li>
                                 <li>
-                                    <img src="assets/images/phone.png" alt="icons">
-                                    <p><a href="javascript:;">(406) 555-0120</a></p>
+                                    <img src="{{ asset('assets/images/phone.png') }}" alt="icons">
+                                    <p><a href="javascript:;">29 769 717</a></p>
                                 </li>
                                 <li>
-                                    <img src="assets/images/mail.png" alt="icons">
+                                    <img src="{{ asset('assets/images/mail.png') }}" alt="icons">
                                     <p><a href="javascript:;"><span class="__cf_email__"
                                                 data-cfemail="ecoplast.tunisie@gmail.com">ecoplast.tunisie@gmail.com</span></a>
                                     </p>
@@ -458,16 +443,115 @@
     </div>
     </div>
     <!-- custom link  -->
-    <script data-cfasync="false" src="../../../cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script src="assets/js/jquery.js"></script>
-  <script src="{{ asset('assets/js/bootstrap.bundle.min.js') }}"></script>
-<script src="{{ asset('assets/js/swiper-bundle.min.js') }}"></script>
-<script src="{{ asset('assets/js/aos.js') }}"></script>
-<script src="{{ asset('assets/js/SmoothScroll.min.js') }}"></script>
-<script src="{{ asset('assets/js/custom.js') }}"></script>
+    <script data-cfasync="false" src="../../../cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script>
+    <script src="{{ asset('assets/js/jquery.js') }}"></script>
+    <script src="{{ asset('assets/js/bootstrap.bundle.min.js') }}"></script>
+    <script src="{{ asset('assets/js/swiper-bundle.min.js') }}"></script>
+    <script src="{{ asset('assets/js/aos.js') }}"></script>
+    <script src="{{ asset('assets/js/SmoothScroll.min.js') }}"></script>
+    <script src="{{ asset('assets/js/custom.js') }}"></script>
+    <script src="{{ asset('assets/js/splide.js') }}"></script>
     <script>
         AOS.init();
     </script>
-<script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'8f56aec4ac540dbf',t:'MTczNDc3MTYzNi4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='../../../cdn-cgi/challenge-platform/h/b/scripts/jsd/787bc399e22f/maind41d.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
+    <script>
+        (function() {
+            function c() {
+                var b = a.contentDocument || a.contentWindow.document;
+                if (b) {
+                    var d = b.createElement('script');
+                    d.innerHTML =
+                        "window.__CF$cv$params={r:'8f56aec4ac540dbf',t:'MTczNDc3MTYzNi4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='../../../cdn-cgi/challenge-platform/h/b/scripts/jsd/787bc399e22f/maind41d.js';document.getElementsByTagName('head')[0].appendChild(a);";
+                    b.getElementsByTagName('head')[0].appendChild(d)
+                }
+            }
+            if (document.body) {
+                var a = document.createElement('iframe');
+                a.height = 1;
+                a.width = 1;
+                a.style.position = 'absolute';
+                a.style.top = 0;
+                a.style.left = 0;
+                a.style.border = 'none';
+                a.style.visibility = 'hidden';
+                document.body.appendChild(a);
+                if ('loading' !== document.readyState) c();
+                else if (window.addEventListener) document.addEventListener('DOMContentLoaded', c);
+                else {
+                    var e = document.onreadystatechange || function() {};
+                    document.onreadystatechange = function(b) {
+                        e(b);
+                        'loading' !== document.readyState && (document.onreadystatechange = e, c())
+                    }
+                }
+            }
+        })();
+    </script>
+    <script>
+        // Primary slider.
+        var primarySlider = new Splide('#primary_slider', {
+            type: 'fade',
+            heightRatio: 0.5,
+            pagination: false,
+            arrows: false,
+            cover: true,
+        });
+
+        // Thumbnails slider.
+        var thumbnailSlider = new Splide('#thumbnail_slider', {
+            rewind: true,
+            fixedWidth: 100,
+            fixedHeight: 64,
+            isNavigation: true,
+            gap: 10,
+            focus: 'center',
+            pagination: false,
+            cover: true,
+            breakpoints: {
+                '600': {
+                    fixedWidth: 66,
+                    fixedHeight: 40,
+                }
+            }
+        }).mount();
+
+        // sync the thumbnails slider as a target of primary slider.
+        primarySlider.sync(thumbnailSlider).mount();
+
+
+        document.addEventListener("DOMContentLoaded", function() {
+            const pdfLinks = document.querySelectorAll(".pdf-link");
+
+            pdfLinks.forEach(link => {
+                link.addEventListener("click", function() {
+                    const pdfUrl = this.getAttribute("data-pdf");
+                    const pdfViewer = document.getElementById("pdfViewer");
+
+                    // Set the iframe source to the selected PDF URL
+                    pdfViewer.setAttribute("src", pdfUrl);
+
+                    // Show the modal
+                    const pdfModal = new bootstrap.Modal(document.getElementById("pdfModal"));
+                    pdfModal.show();
+                });
+            });
+        });
+        document.addEventListener('DOMContentLoaded', function() {
+            var pageUrl = encodeURIComponent(window.location.href); // Get current page URL
+            var pageTitle = encodeURIComponent(document.title); // Use the document title as the page title
+
+            // WhatsApp Share URL
+            var whatsappUrl = "https://api.whatsapp.com/send?text=" + pageUrl;
+            // LinkedIn Share URL
+            var linkedinUrl = "https://www.linkedin.com/shareArticle?mini=true&url=" + pageUrl + "&title=" +
+                pageTitle;
+
+            // Set the href attribute of the WhatsApp and LinkedIn share links
+            document.getElementById("whatsapp-share").setAttribute("href", whatsappUrl);
+            document.getElementById("linkedin-share").setAttribute("href", linkedinUrl);
+        });
+    </script>
+</body>
 
 
 </html>

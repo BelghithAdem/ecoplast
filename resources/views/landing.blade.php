@@ -3,7 +3,7 @@
 <html lang="zxx">
 
 <head>
-    <title>Eco-Recycling Template</title>
+    <title>Eco plast</title>
     <meta charset="UTF-8">
     <meta name="description" content="Free Web tutorials">
     <meta name="keywords" content="HTML, CSS, JavaScript">
@@ -117,11 +117,13 @@
                             <div class="er_navmenu_wrapper">
                                 <div class="er_nav_menu">
                                     <ul>
-                                        <li class="active"><a href="/">Home</a></li>
+                                        <li class="active"><a href="/">Accueil</a></li>
                                         <li><a href="/about-us">About</a></li>
 
                                         <li><a href="/products">Produits</a></li>
                                         <li><a href="/contact-us">Contact</a></li>
+                                        <li> <button onclick="window.location.href='/demande-avis' "
+                                                class="er_btn er_con_btn submitForm">Demande devis</button></li>
                                     </ul>
                                 </div>
                                 <div class="er_toggle">
@@ -137,40 +139,23 @@
         </div>
         <!------------- Header Section end ----------->
         <!------------- About Section start ----------->
-        <div class="er_sec er_about_section">
+
+        <!-- Full-width video background -->
+        <div class=" ">
             <div class="container">
-                <div class="row align-items-center justify-content-center">
-                    <div class="col-lg-6 col-md-12 col-sm-12">
-                        <div class="er_sec_heading er_about_head">
-                            <h5>About Us</h5>
-                            <h4>We Have Experts Who Help You With Your Gardening</h4>
-                            <p>Amet minim mollit non deserunt ullamco est sit aliqua dolor do amet sint.
-                                duis enim velit mollit. Exercitation veniam consequat nostrud amet.</p>
-                            <p>There are many variations of passages of Lorem Ipsum available, but as a the
-                                majority have suffered alteration in some form, by injected humour, or deratt
-                                randomised words which don't look even slightly believable. If you are even
-                                going to use a passage of Lorem Ipsum, you need to be sure.</p>
-                            <div class="er_btn er-about-btn">
-                                <a href="about.html">Know More</a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-6 col-md-12 col-sm-12">
-                        <div class="er_about_img">
-                            <img   style="height:300px;width:100%" src="https://res.cloudinary.com/dx8hb4haj/image/upload/v1735140288/127531812_232913651498495_6916966639308136601_n_emz0jt.jpg" alt="about-img" srcset="">
-                            <div class="er_about_leaf"
+                <div class="position-relative " style="height: 500px">
+                    <video autoplay muted loop
+                        class="w-100 h-100 position-absolute top-0 left-0 object-fit-cover  rounded er_gal_mid_img">
+                        <source
+                            src="https://res.cloudinary.com/dx8hb4haj/video/upload/v1735236586/AQOF3ft5feonJ17oBLEmgeaQfhXwZNzBEZadVt3InTFpGoz8Bmd-7VfVM0DWrlVEvIvK4Z8Gpmzs0mXg2-85dvuw_s1oo5x.mp4"
+                            type="video/mp4">
+                        Your browser does not support the video tag.
+                    </video>
 
-
-                            >
-                                <img src="assets/images/about-leaf.png"
-                                 style="height:100px;width:100%"
-                                alt="about-img" srcset="">
-                            </div>
-                        </div>
-                    </div>
                 </div>
             </div>
         </div>
+
         <!------------- About Section end ----------->
 
         <!------------- Gallery Section start ----------->
@@ -191,12 +176,10 @@
                         <div class="col-lg-3 col-md-3 col-sm-12">
                             <div class="er_gal_box">
                                 <div class="er_gal_img">
-                                    <img src="assets/images/gal-img1.png" alt="gallery-img">
-                                    <div class="er_gal_text">
-                                        <h5>Plants For Garden</h5>
-                                        <p>Amet minim mollit non deserunt ullamco aliqua dolor do amet sint duis enim.
-                                        </p>
-                                    </div>
+                                    <img width="100%" height="500px"
+                                        src="https://res.cloudinary.com/dx8hb4haj/image/upload/v1735235724/127531812_232913651498495_6916966639308136601_n_dxmjng.jpg"
+                                        alt="gallery-img">
+
                                 </div>
                             </div>
                         </div>
@@ -204,46 +187,35 @@
                             <div class="er_gal_mid_img">
                                 <div class="er_gal_box">
                                     <div class="er_gal_img">
-                                        <img src="assets/images/gal-img2.png" alt="gallery-img">
-                                        <div class="er_gal_text">
-                                            <h5>Plants For Garden</h5>
-                                            <p>Amet minim mollit non deserunt ullamco aliqua dolor do amet sint duis
-                                                enim.
-                                            </p>
-                                        </div>
+                                        <img width="100%" height="250px"
+                                            src="https://res.cloudinary.com/dx8hb4haj/image/upload/v1735235800/159621766_297271301729396_8044687804265437062_n_csfzsq.jpg"
+                                            alt="gallery-img">
+
                                     </div>
                                 </div>
                                 <div class="er_gal_box">
                                     <div class="er_gal_img">
-                                        <img src="assets/images/gal-img3.png" alt="gallery-img">
-                                        <div class="er_gal_text">
-                                            <h5>Plants For Garden</h5>
-                                            <p>Amet minim mollit non deserunt ullamco aliqua dolor do amet sint duis
-                                                enim.
-                                            </p>
-                                        </div>
+                                        <img width="100%" height="250px"
+                                            src="https://res.cloudinary.com/dx8hb4haj/image/upload/v1735235831/127229203_231206308335896_4402254202582210019_n_v26ofr.jpg"
+                                            alt="gallery-img">
+
                                     </div>
                                 </div>
                                 <div class="er_gal_box">
                                     <div class="er_gal_img">
-                                        <img src="assets/images/gal-img4.png" alt="gallery-img">
-                                        <div class="er_gal_text">
-                                            <h5>Plants For Garden</h5>
-                                            <p>Amet minim mollit non deserunt ullamco aliqua dolor do amet sint duis
-                                                enim.
-                                            </p>
-                                        </div>
+                                        <img width="100%" height="250px"
+                                            src="https://res.cloudinary.com/dx8hb4haj/image/upload/v1735235880/127152155_232183554904838_578909487512225232_n_f5lyrt.jpg"
+                                            alt="gallery-img">
+
                                     </div>
                                 </div>
                                 <div class="er_gal_box">
                                     <div class="er_gal_img">
-                                        <img src="assets/images/gal-img5.png" alt="gallery-img">
-                                        <div class="er_gal_text">
-                                            <h5>Plants For Garden</h5>
-                                            <p>Amet minim mollit non deserunt ullamco aliqua dolor do amet sint duis
-                                                enim.
-                                            </p>
-                                        </div>
+                                        <img width="100%" height="250px"
+                                            src="
+                                        https://res.cloudinary.com/dx8hb4haj/image/upload/v1735235948/306162794_943427999911623_4238034673065425075_n_qhm5fi.jpg"
+                                            alt="gallery-img">
+
                                     </div>
                                 </div>
                             </div>
@@ -251,12 +223,10 @@
                         <div class="col-lg-3 col-md-3 col-sm-12">
                             <div class="er_gal_box">
                                 <div class="er_gal_img">
-                                    <img src="assets/images/gal-img6.png" alt="gallery-img">
-                                    <div class="er_gal_text">
-                                        <h5>Plants For Garden</h5>
-                                        <p>Amet minim mollit non deserunt ullamco aliqua dolor do amet sint duis enim.
-                                        </p>
-                                    </div>
+                                    <img width="100%" height="500px"
+                                        src="https://res.cloudinary.com/dx8hb4haj/image/upload/v1735235921/126168221_227994141990446_7450120643760403153_n_1_j0wvvc.jpg"
+                                        alt="gallery-img">
+
                                 </div>
                             </div>
                         </div>
@@ -271,15 +241,16 @@
                 <div class="row">
                     <div class="col-lg-12 col-md-12 col-sm-12">
                         <div class="er_sec_heading er_ser_head">
-                            <h5>Who We Are</h5>
-                            <h4>Why Choose Our Eco Recycling Services</h4>
+                            <h5>Qui sommes-nous</h5>
+                            <h4>Pourquoi Choisir Nos Services Eco Plast ?</h4>
                         </div>
                     </div>
                 </div>
                 <div class="row">
                     <div class="col-lg-5 col-md-12 col-sm-12">
-                        <div class="er_choose_img">
-                            <img src="assets/images/who-left.png" alt="img">
+                        <div class="er_choose_img er_gal_img">
+                            <img src="https://res.cloudinary.com/dx8hb4haj/image/upload/v1735205235/306162794_943427999911623_4238034673065425075_n_swjmkp.jpg"
+                                alt="img">
                         </div>
                     </div>
                     <div class="col-lg-7 col-md-12 col-sm-12">
@@ -294,8 +265,10 @@
                                     </svg>
                                 </div>
                                 <div class="er_choose_text">
-                                    <h4>Experience Skills</h4>
-                                    <p>Amet minim mollit deserunt aliqua dolor do amet sint duis.</p>
+                                    <h4>Expérience et Compétences</h4>
+                                    <p>Nous combinons expertise et innovation pour des solutions plastiques écologiques
+                                        de qualité supérieure.</p>
+
                                 </div>
                             </div>
                             <div class="er_choose_box">
@@ -308,8 +281,10 @@
                                     </svg>
                                 </div>
                                 <div class="er_choose_text">
-                                    <h4>Guarantee Services</h4>
-                                    <p>Amet minim mollit deserunt aliqua dolor do amet sint duis.</p>
+                                    <h4>Services Garantis</h4>
+                                    <p>Nous assurons des solutions plastiques écologiques fiables et de qualité,
+                                        adaptées à vos besoins.</p>
+
                                 </div>
                             </div>
                             <div class="er_choose_box">
@@ -322,55 +297,15 @@
                                     </svg>
                                 </div>
                                 <div class="er_choose_text">
-                                    <h4>Quality Work</h4>
-                                    <p>Amet minim mollit deserunt aliqua dolor do amet sint duis.</p>
+                                    <h4>Travail de Qualité</h4>
+                                    <p>Nous nous engageons à fournir des solutions plastiques écologiques avec un
+                                        savoir-faire exceptionnel.</p>
+
                                 </div>
                             </div>
-                            <div class="er_choose_box">
-                                <div class="er_choose_icon">
-                                    <svg width="30" height="33" viewBox="0 0 30 33" fill="none"
-                                        xmlns="http://www.w3.org/2000/svg">
-                                        <path
-                                            d="M10.0367 3.38796C10.0367 4.91651 8.79739 6.1558 7.26884 6.1558C5.74029 6.1558 4.501 4.91651 4.501 3.38796C4.501 1.85941 5.74029 0.620117 7.26884 0.620117C8.79739 0.620117 10.0367 1.85941 10.0367 3.38796ZM18.6306 21.6031L23.7362 21.4017L24.6 23.0374C24.7389 23.3009 25.127 23.2647 25.2151 22.9799L26.1266 20.0287C26.2145 19.7442 25.9143 19.4954 25.6512 19.6343L24.2723 20.3624L20.6691 19.5645L20.9901 19.2438C21.2072 19.0264 21.2072 18.6743 20.9901 18.4572L17.8423 15.3093C17.7379 15.2051 17.5965 15.1465 17.449 15.1465C17.3015 15.1465 17.16 15.2051 17.0557 15.3093L16.9436 15.4217C16.8448 15.215 16.7125 15.026 16.5521 14.8624C16.5464 14.8564 16.5407 14.8502 16.5346 14.8442C16.1237 14.4333 15.5827 14.2306 15.043 14.2354C14.9839 14.1871 14.9205 14.1445 14.8535 14.108L10.4435 11.7208L7.65125 8.39519L10.3606 10.4177V8.96135C10.3606 7.92865 9.52334 7.09166 8.49057 7.09166H5.15645C4.12368 7.09166 3.2867 7.92865 3.2867 8.96135V18.5546H3.29487C3.28842 18.6374 3.30733 18.2389 3.0857 23.5177L1.05658 30.0686C0.805221 30.8805 1.25936 31.7423 2.07111 31.9938C2.8882 32.2466 3.74631 31.7858 3.99625 30.9791L6.08426 24.2369C6.12361 24.1101 6.14636 23.9787 6.15194 23.8461C6.37167 18.492 6.37622 18.7372 6.36185 18.5543H7.07502L9.00134 23.4829L9.98823 30.7314C10.1022 31.5699 10.8744 32.1636 11.7203 32.0485C12.5623 31.9338 13.1519 31.1585 13.0375 30.3165L12.0259 22.886C12.0094 22.7653 11.9788 22.6469 11.9345 22.5334L10.3605 18.5069V15.7002L8.55297 14.7216C8.37137 14.6027 8.0629 14.5316 7.88394 14.1761L5.76572 9.97827L8.70889 13.4836C8.80849 13.6021 8.92952 13.7008 9.06564 13.7745L13.0188 15.9144C12.8849 16.5976 13.0996 17.3009 13.5888 17.7901C13.7567 17.9583 13.9524 18.0963 14.1671 18.1981L13.2719 19.0934C13.2202 19.145 13.1792 19.2063 13.1513 19.2738C13.1233 19.3412 13.1089 19.4136 13.1089 19.4866C13.1089 19.5596 13.1233 19.6319 13.1513 19.6994C13.1792 19.7668 13.2202 19.8281 13.2719 19.8797L16.4197 23.0276C16.4713 23.0793 16.5326 23.1203 16.6001 23.1482C16.6676 23.1762 16.7399 23.1906 16.8129 23.1906C16.886 23.1906 16.9583 23.1762 17.0257 23.1482C17.0932 23.1203 17.1545 23.0793 17.2061 23.0276L18.6306 21.6031ZM14.893 17.4828C14.7259 17.4185 14.4879 17.3846 14.241 17.1378C14.0336 16.9302 13.9158 16.6578 13.9035 16.3665C14.4582 16.5388 15.0674 16.2984 15.3501 15.7764C15.4391 15.6114 15.4892 15.4283 15.4964 15.241C15.641 15.2991 15.7723 15.3861 15.8824 15.4965C16.0676 15.6814 16.1755 15.9144 16.2093 16.1557L14.893 17.4828ZM29.1543 31.4072C29.1332 31.0803 28.847 30.8332 28.5196 30.8332C28.2085 30.8332 27.9102 30.7096 27.6903 30.4897L25.537 28.3364C25.5039 28.3032 25.4646 28.2769 25.4214 28.259C25.3781 28.2411 25.3317 28.2318 25.2849 28.2318C25.2381 28.2318 25.1917 28.2411 25.1484 28.259C25.1052 28.2769 25.0659 28.3032 25.0328 28.3364L22.8795 30.4897C22.6595 30.7096 22.3613 30.8332 22.0502 30.8333H17.4918C17.1644 30.8333 16.8784 31.0803 16.857 31.4073C16.834 31.7654 17.1176 32.0632 17.4709 32.0632H28.5407C28.8938 32.0632 29.1776 31.7654 29.1543 31.4073V31.4072Z"
-                                            fill="white" />
-                                    </svg>
-                                </div>
-                                <div class="er_choose_text">
-                                    <h4>Expert Gardener</h4>
-                                    <p>Amet minim mollit deserunt aliqua dolor do amet sint duis.</p>
-                                </div>
-                            </div>
-                            <div class="er_choose_box">
-                                <div class="er_choose_icon">
-                                    <svg width="25" height="33" viewBox="0 0 25 33" fill="none"
-                                        xmlns="http://www.w3.org/2000/svg">
-                                        <path
-                                            d="M24.1498 26.327C23.4462 24.2329 20.6418 22.9221 18.6424 22.0434C17.8591 21.7004 15.6906 21.1183 15.4299 20.1321C15.3367 19.7767 15.3492 19.4417 15.4257 19.1206C15.3041 19.1445 15.1804 19.1568 15.0565 19.1573H13.7537C13.2538 19.1568 12.7746 18.9579 12.4211 18.6044C12.0677 18.2509 11.869 17.7717 11.8685 17.2718C11.8685 16.2331 12.714 15.3887 13.7537 15.3887H15.0565C15.4869 15.3887 15.8949 15.5344 16.224 15.7943C16.6923 15.7326 17.1546 15.6314 17.6058 15.4918C18.1756 14.298 18.62 12.8705 18.7196 11.6417C19.1448 6.38446 15.9218 3.30863 11.3008 3.84037C7.94091 4.22712 5.93379 6.73243 5.71683 9.95779C5.49743 13.2453 6.71637 15.6734 8.01113 17.4545C8.57815 18.2332 9.17382 18.7339 9.08229 19.6723C8.97608 20.7819 7.78963 21.0911 6.94102 21.4321C5.93554 21.8359 4.8525 22.4487 4.34103 22.732C2.57917 23.705 0.645421 24.8768 0.210808 26.4797C-0.751698 30.0321 2.49881 31.1081 5.1823 31.6049C7.48533 32.0298 10.0822 32.0633 12.2182 32.0633C16.0819 32.0633 23.0294 31.9085 24.1498 29.0042C24.4684 28.1801 24.3318 26.8668 24.1498 26.327Z"
-                                            fill="white" />
-                                        <path
-                                            d="M15.881 16.741C15.7918 16.6036 15.6697 16.4907 15.5259 16.4124C15.382 16.3342 15.2209 16.293 15.0572 16.2927H13.7544C13.6233 16.2892 13.4928 16.312 13.3707 16.3598C13.2486 16.4075 13.1373 16.4792 13.0433 16.5707C12.9494 16.6622 12.8747 16.7716 12.8237 16.8924C12.7727 17.0132 12.7465 17.143 12.7465 17.2741C12.7465 17.4052 12.7727 17.535 12.8237 17.6558C12.8747 17.7766 12.9494 17.886 13.0433 17.9775C13.1373 18.069 13.2486 18.1407 13.3707 18.1884C13.4928 18.2362 13.6233 18.259 13.7544 18.2555H15.0572C15.2364 18.2553 15.4121 18.2057 15.5649 18.1121C15.7177 18.0184 15.8417 17.8844 15.9232 17.7248C17.7396 17.5819 19.3194 17.0271 20.4283 16.2078C20.683 16.372 20.9842 16.4681 21.3091 16.4681H21.3908C21.6061 16.4682 21.8192 16.4258 22.0181 16.3434C22.2169 16.261 22.3976 16.1402 22.5497 15.9879C22.7018 15.8356 22.8224 15.6548 22.9046 15.4559C22.9868 15.257 23.0289 15.0438 23.0287 14.8285V11.5557C23.0287 11.2465 22.9411 10.9437 22.7758 10.6825C22.6105 10.4213 22.3745 10.2123 22.0952 10.0799C21.8548 4.8244 17.5041 0.620117 12.1896 0.620117C6.87499 0.620117 2.52362 4.8244 2.28431 10.0799C2.00475 10.2121 1.76851 10.421 1.60311 10.6823C1.43771 10.9435 1.34996 11.2464 1.3501 11.5557V14.8285C1.34982 15.0437 1.39194 15.2567 1.47404 15.4556C1.55614 15.6544 1.67662 15.8351 1.82859 15.9874C1.98056 16.1397 2.16105 16.2605 2.35973 16.343C2.55842 16.4254 2.77141 16.468 2.98653 16.4681H3.06933C3.28454 16.4681 3.49762 16.4256 3.6964 16.3432C3.89519 16.2607 4.07578 16.1399 4.22785 15.9877C4.37992 15.8354 4.5005 15.6546 4.58268 15.4558C4.66486 15.2569 4.70705 15.0437 4.70682 14.8285V11.5557C4.70666 11.2509 4.62124 10.9522 4.46023 10.6934C4.29922 10.4346 4.06903 10.2259 3.79567 10.0911C4.02939 5.66288 7.70404 2.13323 12.1896 2.13323C16.6733 2.13323 20.3497 5.66288 20.5824 10.0911C20.3093 10.2262 20.0794 10.4349 19.9186 10.6937C19.7578 10.9524 19.6725 11.251 19.6723 11.5557V14.8285C19.6723 15.0458 19.7146 15.2481 19.789 15.4371C18.8345 16.1201 17.4451 16.6068 15.881 16.741Z"
-                                            fill="white" />
-                                    </svg>
-                                </div>
-                                <div class="er_choose_text">
-                                    <h4>Customer Support</h4>
-                                    <p>Amet minim mollit deserunt aliqua dolor do amet sint duis.</p>
-                                </div>
-                            </div>
-                            <div class="er_choose_box">
-                                <div class="er_choose_icon">
-                                    <svg width="32" height="33" viewBox="0 0 32 33" fill="none"
-                                        xmlns="http://www.w3.org/2000/svg">
-                                        <path fill-rule="evenodd" clip-rule="evenodd"
-                                            d="M18.4686 7.38286V2.82218C18.4686 1.61103 17.4776 0.620117 16.2665 0.620117H14.3416L12.938 3.05119H6.15081L4.7472 0.620117H2.8223C1.61122 0.620117 0.620239 1.61103 0.620239 2.82218V29.8611C0.620239 31.0722 1.61115 32.0632 2.8223 32.0632H16.2664C17.4776 32.0632 18.4685 31.0722 18.4685 29.8611V25.3005C13.5207 25.3005 9.50971 21.2895 9.50971 16.3416C9.50971 11.3938 13.5207 7.38286 18.4685 7.38286H18.4686ZM10.1954 28.3161C10.6476 28.3161 11.0142 28.6826 11.0142 29.1349C11.0142 29.5871 10.6476 29.9537 10.1954 29.9537H8.89343C8.44117 29.9537 8.0746 29.5871 8.0746 29.1349C8.0746 28.6826 8.44117 28.3161 8.89343 28.3161H10.1954ZM27.6164 11.702C27.1648 11.702 26.7985 11.3351 26.7985 10.8831C26.7985 9.30508 25.5132 8.02102 23.9343 8.02102C23.4827 8.02102 23.1165 7.65432 23.1165 7.20219C23.1165 6.75007 23.4828 6.38336 23.9343 6.38336C26.4164 6.38336 28.4343 8.40168 28.4343 10.8831C28.4343 11.3351 28.068 11.702 27.6164 11.702ZM30.9353 11.702C31.3869 11.702 31.7532 11.3351 31.7532 10.8831C31.7532 6.5715 28.2448 3.06429 23.9343 3.06429C23.4827 3.06429 23.1164 3.43034 23.1164 3.88312C23.1164 4.3359 23.4827 4.70195 23.9343 4.70195C27.3448 4.70195 30.1174 7.47483 30.1174 10.8831C30.1174 11.3351 30.4837 11.702 30.9353 11.702ZM18.4686 9.02045C14.4362 9.02045 11.1474 12.3093 11.1474 16.3416C11.1474 20.374 14.4362 23.6628 18.4686 23.6628C22.5009 23.6628 25.7897 20.374 25.7897 16.3416C25.7897 12.3093 22.5009 9.02045 18.4686 9.02045ZM21.7644 18.9084C21.4625 19.9324 20.4031 20.4767 19.2886 20.6311V21.5556C19.2886 22.0082 18.9223 22.3744 18.4676 22.3744C18.016 22.3744 17.6497 22.0082 17.6497 21.5556V20.5872C16.3168 20.3305 15.3484 19.5473 15.0949 18.4663C14.9907 18.0261 15.2623 17.5851 15.7012 17.4816C15.8059 17.4569 15.9145 17.4531 16.0207 17.4703C16.1269 17.4875 16.2286 17.5255 16.3201 17.5821C16.4116 17.6387 16.4911 17.7128 16.554 17.8001C16.6168 17.8874 16.6619 17.9862 16.6865 18.0909C16.8318 18.7113 17.7381 19.0172 18.5181 19.0388C19.4086 19.0631 20.1033 18.7519 20.1949 18.4447C20.2581 18.2285 20.2202 18.1171 20.1791 18.0444C20.1096 17.9199 19.8475 17.6009 18.897 17.333C18.7107 17.2806 18.5023 17.2321 18.2844 17.181C17.5676 17.0127 16.7529 16.8213 16.1465 16.3576C15.5749 15.9193 15.2371 15.3233 15.1897 14.6792C15.1423 14.0504 15.376 13.4373 15.8465 12.9531C16.3057 12.4792 16.9584 12.2003 17.6497 12.0799V11.1275C17.6497 10.6755 18.016 10.3086 18.4676 10.3086C18.9223 10.3086 19.2886 10.6755 19.2886 11.1275V12.074C19.448 12.1002 19.6025 12.134 19.7497 12.175C20.8644 12.4861 21.6223 13.185 21.8307 14.0931C21.9318 14.5339 21.6571 14.9734 21.215 15.0743C20.776 15.1758 20.3371 14.9006 20.236 14.4598C20.135 14.0268 19.5539 13.8211 19.3108 13.7524C18.4739 13.5198 17.4255 13.6758 17.0213 14.0931C16.8824 14.2371 16.8129 14.4028 16.8224 14.5601C16.8382 14.7801 17.0055 14.9524 17.1445 15.0585C17.4697 15.3074 18.1013 15.4555 18.6602 15.5865C18.8845 15.6395 19.1181 15.6946 19.3392 15.7562C20.476 16.0765 21.2403 16.5796 21.6129 17.2524C21.8844 17.7463 21.9381 18.3187 21.7644 18.9082L21.7644 18.9084ZM12.4506 0.620117L11.7987 1.74925H7.29016L6.63824 0.620117H12.4506Z"
-                                            fill="white" />
-                                    </svg>
-                                </div>
-                                <div class="er_choose_text">
-                                    <h4>Online Pay</h4>
-                                    <p>Amet minim mollit deserunt aliqua dolor do amet sint duis.</p>
-                                </div>
-                            </div>
+
+
+
                             <div class="er_choose_box">
                                 <div class="er_choose_icon">
                                     <svg width="33" height="33" viewBox="0 0 33 33" fill="none"
@@ -381,30 +316,13 @@
                                     </svg>
                                 </div>
                                 <div class="er_choose_text">
-                                    <h4>Trusted Work</h4>
-                                    <p>Amet minim mollit deserunt aliqua dolor do amet sint duis.</p>
+                                    <h4>Travail de Confiance</h4>
+                                    <p>Nous sommes reconnus pour offrir des solutions plastiques écologiques fiables et
+                                        dignes de confiance.</p>
+
                                 </div>
                             </div>
-                            <div class="er_choose_box">
-                                <div class="er_choose_icon">
-                                    <svg width="40" height="33" viewBox="0 0 40 33" fill="none"
-                                        xmlns="http://www.w3.org/2000/svg">
-                                        <path
-                                            d="M36.1246 22.0012C36.0434 22.0012 35.9629 21.9852 35.8879 21.9541C35.8129 21.9231 35.7447 21.8775 35.6873 21.8201C35.6298 21.7626 35.5843 21.6945 35.5532 21.6194C35.5221 21.5444 35.5061 21.4639 35.5061 21.3827V0.988171C35.5061 0.820467 35.3638 0.679688 35.1961 0.679688H27.9309C27.7609 0.679688 27.6232 0.818159 27.6232 0.988171V21.3827C27.6232 21.7243 27.3463 22.0012 27.0047 22.0012H23.2229L31.5643 31.6788L35.94 26.5993L39.9064 22.0012H36.1246Z"
-                                            fill="white" />
-                                        <path
-                                            d="M22.8869 20.7639H26.3871V8.87078C24.0146 5.67209 20.2451 3.76733 16.261 3.76733C9.31818 3.76733 3.66931 9.40851 3.66931 16.3421C3.66931 23.2757 9.31741 28.9168 16.261 28.9168C19.4228 28.9168 22.4084 27.7591 24.7316 25.6451L22.066 22.5525C21.7845 22.2279 21.7214 21.7825 21.9037 21.3917C22.0814 21.0063 22.4584 20.7639 22.8869 20.7639ZM20.9675 19.4562C20.8929 20.5255 20.3705 21.5078 19.5682 22.2117C18.8919 22.8079 18.0734 23.1641 17.2057 23.3157V24.8065C17.2057 25.312 16.7926 25.722 16.2895 25.722H16.0864C15.5802 25.722 15.1701 25.312 15.1701 24.8065V23.2926C14.0785 23.0549 13.1061 22.4448 12.4207 21.5686C12.2415 21.3401 12.183 21.0678 12.253 20.7863C12.323 20.5047 12.4999 20.2901 12.7661 20.1716L12.9577 20.0854C13.3423 19.9108 13.7831 20.0154 14.0493 20.3462C14.3069 20.6655 14.6326 20.923 15.0027 21.0999C15.3727 21.2768 15.7777 21.3686 16.1879 21.3686C16.9203 21.3686 17.6642 21.1778 18.2242 20.6862C18.6227 20.3347 18.9004 19.8477 18.9381 19.3123C19.045 17.8353 17.4503 17.3722 16.2518 17.3606C14.9647 17.3468 13.6377 17.0206 12.6792 16.1144C11.8791 15.362 11.4783 14.3212 11.5553 13.2288C11.6322 12.1618 12.1545 11.1794 12.9546 10.4732C13.6331 9.87931 14.4516 9.52313 15.3194 9.37158V7.8784C15.3194 7.37529 15.7302 6.96295 16.2356 6.96295H16.4387C16.9426 6.96295 17.3549 7.37529 17.3549 7.8784V9.39236C18.4442 9.62923 19.4161 10.24 20.102 11.1186C20.2813 11.3471 20.3397 11.6194 20.2697 11.901C20.202 12.1826 20.0228 12.3972 19.7589 12.5157L19.5674 12.6018C19.1804 12.7764 18.7396 12.6718 18.4758 12.341C18.2179 12.0216 17.8918 11.7639 17.5213 11.587C17.1508 11.4101 16.7454 11.3184 16.3348 11.3186C15.6025 11.3186 14.8586 11.5094 14.2985 12.001C13.9024 12.3503 13.6246 12.8395 13.5846 13.3726C13.48 14.852 15.0724 15.3128 16.271 15.3266C17.558 15.3405 18.8881 15.6667 19.8466 16.5706C20.6436 17.3252 21.0467 18.3661 20.9675 19.4562Z"
-                                            fill="white" />
-                                        <path
-                                            d="M16.2609 30.153C8.63655 30.153 2.43303 23.9572 2.43303 16.342C2.43303 8.72686 8.63655 2.53102 16.2609 2.53102C20.1151 2.53102 23.7869 4.15422 26.3871 6.94134V4.30577C23.55 1.92481 19.9647 0.619828 16.2609 0.620117C7.58109 0.620887 0.519043 7.67293 0.519043 16.342C0.519043 25.0111 7.58109 32.0632 16.2609 32.0632C20.1774 32.0632 23.8915 30.6346 26.7871 28.0298L25.5393 26.582C22.9914 28.8898 19.722 30.153 16.2609 30.153Z"
-                                            fill="white" />
-                                    </svg>
-                                </div>
-                                <div class="er_choose_text">
-                                    <h4>Low Cost</h4>
-                                    <p>Amet minim mollit deserunt aliqua dolor do amet sint duis.</p>
-                                </div>
-                            </div>
+
                         </div>
                     </div>
                 </div>
@@ -427,17 +345,17 @@
                     <div class="col-lg-12">
                         <div class="swiper er_blog_slider">
                             <div class="swiper-wrapper">
-                                @foreach ($products as $product)
-                                    <div class="swiper-slide"  onclick="window.location.href='/product-detail/' + {{ $product->id }}">
+                                @foreach ($productsAll as $product)
+                                    <div class="swiper-slide"
+                                        onclick="window.location.href='/product-detail/' + {{ $product->id }}">
                                         <div class="er_blog_wrapper">
                                             <div class="er_blog_img">
 
-                                                <img src="{{'/storage/' . $product->image}}"
+                                                <img src="{{ '/storage/' . $product->image }}"
                                                     alt="{{ $product->name }}">
                                             </div>
                                             <div class="er_blog_text">
-                                                <h4><a
-                                                    >{{ $product->name }}</a>
+                                                <h4><a>{{ $product->name }}</a>
                                                 </h4>
                                                 <p>{{ Str::limit($product->description, 100, '...') }}</p>
                                                 <div class="er_blog_date">
@@ -492,8 +410,10 @@
                                     <img src="https://res.cloudinary.com/dx8hb4haj/image/upload/v1735134461/305634378_943428003244956_6083361726050805554_n-removebg-preview_spvusi.png"
                                         width="100px" height="70px">
                                 </a>
-                                <p>La société EcoPlast Tunisie transforme les déchets plastique en granulés de plastique haute qualité, notamment du PP, HDPE et LDPE.
-Sur demande, nos équipes peuvent également laver et granuler à façon vos déchets plastiques, films ou broyés.</p>
+                                <p>La société EcoPlast Tunisie transforme les déchets plastique en granulés de plastique
+                                    haute qualité, notamment du PP, HDPE et LDPE.
+                                    Sur demande, nos équipes peuvent également laver et granuler à façon vos déchets
+                                    plastiques, films ou broyés.</p>
                                 <div class="er_social_icon">
                                     <ul>
                                         <li><a href="javascript:;">
@@ -552,30 +472,22 @@ Sur demande, nos équipes peuvent également laver et granuler à façon vos dé
                             <div class="er_footer_heading">
                                 <h5>Notre Produits</h5>
                                 <div class="er_footer_news_box">
-                                    <div class="er_footer_news">
-                                        <div class="er_ftnews_img">
-                                            <img src="assets/images/news-1.png" alt="news">
+                                    @foreach ($products as $item)
+                                        <div class="er_footer_news">
+                                            <div class="er_ftnews_img">
+                                                <img src="{{ '/storage/' . $item->image }}" width="120px"
+                                                    alt="{{ $item->name }}">
+                                            </div>
+                                            <div class="er_ftnews_text">
+                                                <h4>{{ $item->name }}</h4>
+                                                <span>
+                                                    <img src="{{ asset('assets/images/blog-date.png') }}"
+                                                        alt="news">
+                                                    <p>{{ $item->created_at->format('M d, Y') }}</p>
+                                                </span>
+                                            </div>
                                         </div>
-                                        <div class="er_ftnews_text">
-                                            <h4>There Are Many Variations Passages</h4>
-                                            <span>
-                                                <img src="assets/images/date-icon.png" alt="news">
-                                                <p>Jan 06, 2024</p>
-                                            </span>
-                                        </div>
-                                    </div>
-                                    <div class="er_footer_news">
-                                        <div class="er_ftnews_img">
-                                            <img src="assets/images/news-1.png" alt="news">
-                                        </div>
-                                        <div class="er_ftnews_text">
-                                            <h4>There Are Many Variations Passages</h4>
-                                            <span>
-                                                <img src="assets/images/date-icon.png" alt="news">
-                                                <p>Jan 06, 2024</p>
-                                            </span>
-                                        </div>
-                                    </div>
+                                    @endforeach
                                 </div>
                             </div>
                         </div>
@@ -585,11 +497,11 @@ Sur demande, nos équipes peuvent également laver et granuler à façon vos dé
                                 <ul>
                                     <li>
                                         <img src="assets/images/location.png" alt="icons">
-                                        <p><a href="javascript:;">2972 Westheimer Rd. Santa Ana, Illinois 85486</a></p>
+                                        <p><a href="javascript:;">Ksar Hellal, Ksar Hellal, Tunisia</a></p>
                                     </li>
                                     <li>
                                         <img src="assets/images/phone.png" alt="icons">
-                                        <p><a href="javascript:;">(406) 555-0120</a></p>
+                                        <p><a href="javascript:;">29 769 717</a></p>
                                     </li>
                                     <li>
                                         <img src="assets/images/mail.png" alt="icons">
