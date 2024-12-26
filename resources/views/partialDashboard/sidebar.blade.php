@@ -23,9 +23,9 @@
 
           <!-- Content -->
           <div
-              class="h-full overflow-y-auto [&::-webkit-scrollbar]:w-2 [&::-webkit-scrollbar-thumb]:rounded-full [&::-webkit-scrollbar-track]:bg-gray-100 [&::-webkit-scrollbar-thumb]:bg-gray-300">
+              class="h-full flex flex-coloverflow-y-auto [&::-webkit-scrollbar]:w-2 [&::-webkit-scrollbar-thumb]:rounded-full [&::-webkit-scrollbar-track]:bg-gray-100 [&::-webkit-scrollbar-thumb]:bg-gray-300">
               <nav class="hs-accordion-group p-3 w-full flex flex-col flex-wrap" data-hs-accordion-always-open>
-                  <ul class="flex flex-col space-y-1">
+                <ul class="flex flex-col space-y-1">
 
 
                       <li>
@@ -146,16 +146,35 @@
                           </a>
                       </li>
 
-
-
-
-
-
-
                   </ul>
+                  <ul class="mt-auto">
+                    <li class="py-3 px-5 rounded-t-lg">
+        <p class="text-sm text-gray-500">Connecté en tant que</p>
+        <p class="text-sm font-medium text-gray-800">{{ auth()->user()->email }}</p>
 
+      </li>
+      <li class="p-1.5 space-y-0.5">
+
+        <form action="{{ route('logout') }}" method="POST" class="inline">
+            @csrf
+            <button type="submit"
+                class="w-full flex items-center gap-x-3.5 py-2 px-3 rounded-lg text-sm text-gray-800 hover:bg-gray-100 focus:outline-none focus:bg-gray-100">
+                <svg class="shrink-0 size-4" xmlns="http://www.w3.org/2000/svg" width="24"
+                    height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                    stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M4 14.899A7 7 0 1 1 15.71 8h1.79a4.5 4.5 0 0 1 2.5 8.242" />
+                    <path d="M12 12v9" />
+                    <path d="m8 17 4 4 4-4" />
+                </svg>
+                Déconnexion
+            </button>
+        </form>
+
+    </li>
+</ul>
               </nav>
           </div>
+          
           <!-- End Content -->
       </div>
   </div>

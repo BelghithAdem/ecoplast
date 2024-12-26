@@ -106,8 +106,7 @@
     </script>
 </head>
 
-<body class="bg-gray-50 dark:bg-neutral-900">
-    @include('partialDashboard.header')
+<body class="dark:bg-neutral-900">
     @include('partialDashboard.sidebar')
 
     <div class="w-full lg:ps-64 bg-white dark:bg-neutral-900">

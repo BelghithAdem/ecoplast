@@ -113,9 +113,8 @@
     </script>
 </head>
 
-<body class="bg-gray-50 dark:bg-neutral-900">
+<body class="dark:bg-neutral-900">
 
-    @include('partialDashboard.header')
     <!-- ========== MAIN CONTENT ========== -->
 
 
@@ -181,7 +180,7 @@
 
 
         <div class=" p-6 rounded-lg shadow-md">
-            <h2 class="text-2xl font-semibold text-gray-800 dark:text-white">
+            <h2 class="mb-4 text-2xl font-semibold text-gray-800 dark:text-white">
                 {{ isset($product) ? 'Modifier Produit' : 'Ajouter Produit' }}
             </h2>
             @if (session('success'))
@@ -249,8 +248,9 @@
     dark:file:bg-neutral-700 dark:file:text-neutral-400">
 
                     @if (isset($product) && $product->image)
-                        <img src="{{ asset('storage/' . $product->image) }}" alt="Product Image" class="mt-2 h-16">
-                    @endif
+                    
+                    <img src="{{ asset('storage/' . $product->image) }}" alt="Product Image" class="mt-2 w-auto" controls style="height:200px">
+                   @endif
                     @error('image')
                         <span class="text-red-500 text-sm">{{ $message }}</span>
                     @enderror
@@ -264,14 +264,23 @@
                         class="block w-full border border-gray-200 shadow-sm rounded-lg text-sm focus:z-10 focus:border-blue-500 focus:ring-blue-500 dark:bg-neutral-900 dark:border-neutral-700 dark:text-neutral-400
         file:bg-gray-50 file:border-0 file:me-4 file:py-3 file:px-4 dark:file:bg-neutral-700 dark:file:text-neutral-400">
 
-                    @if (isset($product) && $product->pdfs)
-                        @foreach ($product->pdfs as $pdf)
-                            <a href="{{ asset('storage/' . $pdf->pdf_path) }}" target="_blank"
-                                class="text-blue-500 underline mt-2">
-                                Voir PDF
-                            </a>
-                        @endforeach
-                    @endif
+        @if (isset($product) && $product->pdfs)
+        @foreach ($product->pdfs as $index => $pdf)
+            <a href="{{ asset('storage/' . $pdf->pdf_path) }}" target="_blank" 
+               class="mt-4 inline-flex flex-col items-center space-x-4 hover:text-blue-700 transition-all duration-200">
+                <!-- Icône PDF personnalisée -->
+                <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-8 fill-current" viewBox="0 0 512 512">
+                    <path
+    d="M64 464c-8.8 0-16-7.2-16-16V64c0-8.8 7.2-16 16-16H224v80c0 17.7 14.3 32 32 32h80V448c0 8.8-7.2 16-16 16H64zM64 0C28.7 0 0 28.7 0 64V448c0 35.3 28.7 64 64 64H320c35.3 0 64-28.7 64-64V154.5c0-17-6.7-33.3-18.7-45.3L274.7 18.7C262.7 6.7 246.5 0 229.5 0H64zm56 256c-13.3 0-24 10.7-24 24s10.7 24 24 24H264c13.3 0 24-10.7 24-24s-10.7-24-24-24H120zm0 96c-13.3 0-24 10.7-24 24s10.7 24 24 24H264c13.3 0 24-10.7 24-24s-10.7-24-24-24H120z"
+  />
+                  </svg>
+                <!-- Texte du lien avec le compteur -->
+                <span class="mt-2 text-sm font-medium">PDF N° {{ $index + 1 }}</span>
+            </a>
+        @endforeach
+    @endif
+    
+    
 
                     @error('pdfs.*')
                         <span class="text-red-500 text-sm">{{ $message }}</span>
@@ -292,7 +301,7 @@
     file:py-3 file:px-4
     dark:file:bg-neutral-700 dark:file:text-neutral-400">
                     @if (isset($product) && $product->video)
-                        <video class="mt-2 w-full" controls style="height:100px">
+                        <video class="mt-2 w-auto" controls style="height:300px">
                             <source src="{{ asset('storage/' . $product->video) }}" type="video/mp4">
                             Your browser does not support the video tag.
                         </video>

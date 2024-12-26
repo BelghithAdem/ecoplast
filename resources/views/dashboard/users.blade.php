@@ -113,9 +113,8 @@
     </script>
 </head>
 
-<body class="bg-gray-50 dark:bg-neutral-900">
+<body class="dark:bg-neutral-900">
 
-    @include('partialDashboard.header')
     <!-- ========== MAIN CONTENT ========== -->
 
 
@@ -173,18 +172,19 @@
             <form action="{{ route('users.index') }}" method="GET"
                 class="mb-6 flex flex-wrap items-end gap-6 p-4 bg-white border border-gray-200 rounded-lg shadow-sm dark:bg-neutral-900 dark:border-none dark:text-white">
                 <div class="w-full sm:w-auto flex-1">
-                    <label for="recherche" class="block text-sm font-medium text-gray-700 dark:text-white">
-                        Rechercher dans toutes les colonnes
-                    </label>
+                    <label for="recherche"
+                    class="block text-lg font-medium dark:text-white">
+                    Rechercher dans toutes les colonnes
+                </label>
                     <input type="text" name="recherche" id="recherche" value="{{ request('recherche') }}"
                         placeholder="Entrez un mot-clé"
                         class="py-3 px-4 block w-full border-gray-200 rounded-lg text-sm focus:border-blue-500 focus:ring-blue-500 disabled:opacity-50 disabled:pointer-events-none dark:bg-neutral-900 dark:border-neutral-700 dark:text-neutral-400 dark:placeholder-neutral-500 dark:focus:ring-neutral-600">
                 </div>
                 <div class="w-full sm:w-auto">
                     <button type="submit"
-                        class="w-full inline-flex items-center justify-center px-6 py-2 text-sm font-medium text-white bg-indigo-600 rounded-md shadow hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2 dark:bg-indigo-500 dark:hover:bg-indigo-600">
-                        Rechercher
-                    </button>
+                    class="py-2 px-3 inline-flex items-center gap-x-2 text-sm font-medium rounded-lg border border-transparent bg-blue-600 text-white hover:bg-blue-700 focus:outline-none focus:bg-blue-700 disabled:opacity-50 disabled:pointer-events-none dark:text-white"
+                >Rechercher
+                </button>
                 </div>
             </form>
             <!-- Card -->
@@ -244,19 +244,19 @@
                                                 <thead>
                                                     <tr>
                                                         <th scope="col"
-                                                            class="px-6 py-3 text-start text-xs font-medium text-gray-500 uppercase dark:text-white">
+                                                            class="px-6 py-3 text-start text-lg font-medium uppercase dark:text-white">
                                                             Nom
                                                         </th>
                                                         <th scope="col"
-                                                            class="px-6 py-3 text-start text-xs font-medium text-gray-500 uppercase dark:text-white">
+                                                            class="px-6 py-3 text-start text-lg font-medium uppercase dark:text-white">
                                                             Email
                                                         </th>
                                                         <th scope="col"
-                                                            class="px-6 py-3 text-start text-xs font-medium text-gray-500 uppercase dark:text-white">
+                                                            class="px-6 py-3 text-start text-lg font-medium uppercase dark:text-white">
                                                             Role
                                                         </th>
                                                         <th scope="col"
-                                                            class="px-6 py-3 text-end text-xs font-medium text-gray-500 uppercase dark:text-white">
+                                                            class="px-6 py-3 text-end text-lg font-medium uppercase dark:text-white">
                                                             Action
                                                         </th>
                                                     </tr>
@@ -281,7 +281,9 @@
                                                                 <!-- Edit Button -->
                                                                 <a href="{{ route('users.edit', $user->id) }}"
                                                                     class="inline-flex items-center gap-x-2 text-sm font-semibold rounded-lg border border-transparent text-green-600 hover:text-green-800 focus:outline-none focus:text-green-800">
-                                                                    Edit
+                                                                    <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 11l3 3L22 4M5 12a7 7 0 1114 0 7 7 0 01-14 0z" />
+                                                                      </svg>
                                                                 </a>
 
                                                                 <!-- Delete Button -->
@@ -292,7 +294,9 @@
                                                                     <button type="submit"
                                                                         class="inline-flex items-center gap-x-2 text-sm font-semibold rounded-lg border border-transparent text-red-600 hover:text-red-800 focus:outline-none focus:text-red-800"
                                                                         onclick="return confirm('voulez vous supprimer cet utilisateur?');">
-                                                                        Delete
+                                                                        <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+                                                                        </svg>
                                                                     </button>
                                                                 </form>
                                                             </td>
