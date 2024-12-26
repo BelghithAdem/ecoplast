@@ -304,7 +304,7 @@
                         <div class="col-lg-6 col-md-12 col-sm-12">
                             <div class="er_blog_wrapper er_blog_single"   onclick="window.location.href='/product-detail/' + {{ $product->id }}">
                                 <div class="er_blog_img">
-                                    <img src="{{ '/storage/' . $product->image }}" alt="{{ $product->name }}">
+                                    <img src="{{ '/storage/' .  $product->images[0]->image_path }}" alt="{{ $product->name }}">
                                 </div>
                                 <div class="er_blog_text">
                                     <h4><a>{{ $product->name }}</a></h4>
