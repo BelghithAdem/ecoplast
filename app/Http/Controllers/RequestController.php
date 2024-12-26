@@ -24,8 +24,9 @@ class RequestController extends Controller
         }
 
         $requests = $query->paginate(10);
-        Log::info($requests);
-        return view('dashboard.requests', compact('requests'));
+        $products = Product::paginate(3);
+
+        return view('dashboard.requests', compact('requests','products'));
     }
 
     public function create()

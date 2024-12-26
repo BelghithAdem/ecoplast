@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\Models\Contact;
+use App\Models\Product;
+
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Log;
 class ContactController extends Controller
@@ -24,8 +26,9 @@ class ContactController extends Controller
         }
 
         $contacts = $query->paginate(10);
+        $products = Product::paginate(3);
 
-        return view('dashboard.contact', compact('contacts'));
+        return view('dashboard.contact', compact('contacts','products'));
     }
     public function store(Request $request)
     {

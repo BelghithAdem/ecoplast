@@ -4,6 +4,9 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Partner; // Ensure you have a Partner model
+use App\Models\Product; // Ensure you have a Partner model
+
+
 use Illuminate\Support\Facades\Storage;
 
 class PartnerController extends Controller
@@ -17,8 +20,8 @@ class PartnerController extends Controller
             $query->where('name', 'like', '%' . $search . '%');
         }
         $partners = $query->paginate(10);
-
-        return view('dashboard.partners', compact('partners'));
+        $products = Product::paginate(3);
+        return view('dashboard.partners', compact('partners','products'));
     }
 
     public function create()

@@ -40,7 +40,7 @@ class ProductController extends Controller
             $data = $request->validate([
                 'name' => 'required|string|max:255',
                 'description' => 'nullable|string',
-                'image' => 'nullable|image|mimes:jpeg,png,jpg|max:2048',
+                'images' => 'nullable|image|mimes:jpeg,png,jpg|max:2048',
                 'pdfs' => 'nullable|mimes:pdf|max:2048',
                 'qty' => 'required|integer',
                 'video' => 'nullable|file|mimes:mp4,mov,avi|max:10240',
@@ -65,9 +65,6 @@ class ProductController extends Controller
                 'video.mimes' => 'La vidéo doit être au format mp4, mov ou avi.',
                 'video.max' => 'La vidéo ne doit pas dépasser 10240 kilo-octets (10 Mo).',
             ]);
-            if ($request->hasFile('image')) {
-                $data['image'] = $request->file('image')->store('images', 'public'); // Save to storage/app/public/images
-            }
 
 
             if ($request->hasFile('video')) {
@@ -79,6 +76,13 @@ class ProductController extends Controller
                 foreach ($request->file('pdfs') as $pdf) {
                     $path = $pdf->store('pdfs', 'public');
                     $product->pdfs()->create(['pdf_path' => $path]);
+                }
+            }
+
+            if ($request->hasFile('images')) {
+                foreach ($request->file('images') as $pdf) {
+                    $path = $pdf->store('images', 'public');
+                    $product->images()->create(['image_path' => $path]);
                 }
             }
             return redirect()->route('productDashboard.index')->with('success', 'Product created successfully.');
@@ -132,11 +136,6 @@ class ProductController extends Controller
             ]);
 
             // Handle file uploads if they exist
-            if ($request->hasFile('image')) {
-                $data['image'] = $request->file('image')->store('images', 'public'); // Save to storage/app/public/images
-            }
-
-
 
             if ($request->hasFile('video')) {
                 $data['video'] = $request->file('video')->store('videos', 'public'); // Save to storage/app/public/videos
@@ -150,6 +149,13 @@ class ProductController extends Controller
                 foreach ($request->file('pdfs') as $pdf) {
                     $path = $pdf->store('pdfs', 'public');
                     $product->pdfs()->create(['pdf_path' => $path]);
+                }
+            }
+
+            if ($request->hasFile('images')) {
+                foreach ($request->file('images') as $pdf) {
+                    $path = $pdf->store('images', 'public');
+                    $product->images()->create(['image_path' => $path]);
                 }
             }
 
